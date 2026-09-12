@@ -2,13 +2,28 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SUGIH SAWARGI VEGETABLES | Distribusi Sayuran Segar</title>
-
-<meta name="description" content="SUGIH SAWARGI VEGETABLES menyediakan sayuran segar berkualitas untuk rumah tangga, UMKM, warung, restoran, katering dan kebutuhan usaha di Cisarua Bandung Barat.">
+<title>SUGIH SAWARGI | Toko Sayuran Segar Cisarua Bandung Barat</title>
+<meta name="description" content="SUGIH SAWARGI menyediakan sayuran segar berkualitas untuk kebutuhan rumah tangga, UMKM, warung, restoran, dan distribusi. Cisarua Bandung Barat.">
+<meta name="theme-color" content="#16a34a">
 
 <style>
+:root{
+  --primary:#16a34a;
+  --primary-dark:#15803d;
+  --primary-soft:#dcfce7;
+  --bg:#f5f7f6;
+  --card:#ffffff;
+  --text:#17221a;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --danger:#dc2626;
+  --warning:#d97706;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+  --radius:20px;
+}
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -20,21 +35,21 @@ html{
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f5f8f4;
-  color:#18351f;
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
   line-height:1.6;
-  transition:.3s;
+  transition:.25s;
 }
 
 body.dark{
-  background:#101510;
-  color:#e8f4e9;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
+  --bg:#0d1510;
+  --card:#152019;
+  --text:#ecfdf5;
+  --muted:#9ca3af;
+  --border:#26372c;
+  --primary-soft:#12351f;
+  --shadow:0 10px 30px rgba(0,0,0,.28);
 }
 
 button,
@@ -48,105 +63,113 @@ button{
   cursor:pointer;
 }
 
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+}
+
 .container{
   width:min(1180px,92%);
   margin:auto;
 }
 
-/* =========================
-   HEADER
-========================= */
-
+/* HEADER */
 header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(255,255,255,.97);
-  border-bottom:1px solid #e4eae4;
-  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--border);
 }
 
-.dark header{
-  background:rgba(16,21,16,.97);
-  border-color:#29362c;
+body.dark header{
+  background:rgba(13,21,16,.94);
 }
 
-.nav{
-  min-height:70px;
+.navbar{
+  min-height:72px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
+  gap:20px;
 }
 
-.logo{
+.brand{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:12px;
   font-weight:900;
-  font-size:17px;
-  color:#19713b;
-  min-width:0;
 }
 
-.logo img{
-  width:43px;
-  height:43px;
+.brand img{
+  width:48px;
+  height:48px;
+  border-radius:14px;
   object-fit:cover;
-  border-radius:12px;
-  border:2px solid #dcebdc;
-  background:white;
+  border:2px solid var(--primary);
 }
 
-.dark .logo img{
-  border-color:#35543b;
+.brand-text{
+  line-height:1.1;
 }
 
-.logo-text{
-  line-height:1.15;
-}
-
-.logo-text small{
+.brand-text strong{
   display:block;
-  font-size:9px;
-  letter-spacing:1px;
-  color:#6b7d6d;
-  margin-top:3px;
+  font-size:17px;
+  letter-spacing:.5px;
 }
 
-.dark .logo-text small{
-  color:#a7b9aa;
+.brand-text span{
+  display:block;
+  font-size:11px;
+  color:var(--muted);
+  margin-top:3px;
 }
 
 .nav-links{
   display:flex;
-  gap:20px;
-  font-size:14px;
-  font-weight:700;
-}
-
-.nav-links a:hover{
-  color:#19713b;
-}
-
-.nav-actions{
-  display:flex;
+  align-items:center;
   gap:7px;
 }
 
-.icon-btn{
+.nav-links a,
+.nav-action{
+  padding:9px 12px;
+  border-radius:12px;
+  font-weight:700;
+  font-size:14px;
   border:0;
-  background:#edf5ed;
-  color:#19713b;
-  width:41px;
-  height:41px;
-  border-radius:11px;
-  font-size:18px;
+  background:transparent;
+  color:var(--text);
 }
 
-.dark .icon-btn{
-  background:#1d291f;
-  color:#b8edc0;
+.nav-links a:hover,
+.nav-action:hover{
+  background:var(--primary-soft);
+  color:var(--primary-dark);
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.icon-btn{
+  width:43px;
+  height:43px;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--text);
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  font-size:19px;
 }
 
 .cart-btn{
@@ -157,93 +180,83 @@ header{
   position:absolute;
   top:-5px;
   right:-5px;
-  background:#e53935;
-  color:white;
-  min-width:20px;
-  height:20px;
+  min-width:21px;
+  height:21px;
   padding:0 5px;
-  border-radius:20px;
+  border-radius:50px;
+  background:var(--danger);
+  color:white;
   font-size:11px;
   display:grid;
   place-items:center;
-  font-weight:bold;
+  font-weight:900;
 }
 
-.menu-btn{
+.mobile-menu-btn{
   display:none;
 }
 
-/* =========================
-   HERO
-========================= */
-
+/* HERO */
 .hero{
-  padding:70px 0 55px;
+  padding:75px 0 55px;
   background:
-    radial-gradient(circle at 10% 10%,rgba(52,168,83,.13),transparent 32%),
-    radial-gradient(circle at 90% 20%,rgba(139,195,74,.12),transparent 28%);
+    radial-gradient(circle at 10% 10%,rgba(34,197,94,.18),transparent 35%),
+    radial-gradient(circle at 90% 20%,rgba(22,163,74,.12),transparent 30%);
 }
 
 .hero-grid{
   display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:40px;
+  grid-template-columns:1.15fr .85fr;
+  gap:45px;
   align-items:center;
 }
 
-.badge{
-  display:inline-block;
-  padding:8px 13px;
-  border-radius:30px;
-  background:#e3f3e6;
-  color:#19713b;
-  font-weight:800;
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 12px;
+  border-radius:50px;
+  background:var(--primary-soft);
+  color:var(--primary-dark);
   font-size:13px;
+  font-weight:800;
   margin-bottom:18px;
 }
 
-.dark .badge{
-  background:#1d3322;
-  color:#9ce7aa;
-}
-
 .hero h1{
-  font-size:clamp(38px,6vw,66px);
-  line-height:1.04;
+  font-size:clamp(38px,6vw,68px);
+  line-height:1.02;
   letter-spacing:-2px;
   margin-bottom:20px;
 }
 
 .hero h1 span{
-  color:#19713b;
+  color:var(--primary);
 }
 
 .hero p{
-  color:#5c6e60;
+  color:var(--muted);
+  font-size:17px;
   max-width:650px;
-  font-size:18px;
-  margin-bottom:27px;
-}
-
-.dark .hero p{
-  color:#b7c7b9;
+  margin-bottom:28px;
 }
 
 .hero-buttons{
   display:flex;
-  gap:10px;
   flex-wrap:wrap;
+  gap:12px;
 }
 
 .btn{
   border:0;
-  border-radius:12px;
-  padding:12px 18px;
+  border-radius:14px;
+  padding:13px 19px;
   font-weight:800;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:7px;
+  gap:8px;
   transition:.2s;
 }
 
@@ -252,105 +265,77 @@ header{
 }
 
 .btn-primary{
-  background:#19713b;
+  background:var(--primary);
   color:white;
+}
+
+.btn-primary:hover{
+  background:var(--primary-dark);
 }
 
 .btn-secondary{
-  background:#eaf1ea;
-  color:#1d512e;
-}
-
-.dark .btn-secondary{
-  background:#202c22;
-  color:#d8eddb;
+  background:var(--card);
+  border:1px solid var(--border);
+  color:var(--text);
 }
 
 .btn-danger{
-  background:#dc3545;
-  color:white;
-}
-
-.btn-warning{
-  background:#e7a500;
-  color:white;
+  background:#fee2e2;
+  color:#991b1b;
 }
 
 .btn-small{
-  padding:8px 11px;
-  font-size:12px;
+  padding:9px 12px;
+  border-radius:11px;
+  font-size:13px;
 }
-
-/* =========================
-   HERO CARD
-========================= */
 
 .hero-card{
-  background:white;
-  border-radius:25px;
-  padding:22px;
-  box-shadow:0 15px 45px rgba(35,72,41,.12);
-}
-
-.dark .hero-card{
-  background:#172019;
-  box-shadow:none;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:25px;
+  box-shadow:var(--shadow);
 }
 
 .hero-logo{
   width:100%;
-  height:320px;
-  border-radius:20px;
-  overflow:hidden;
-  background:#eef7ed;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.hero-logo img{
-  width:100%;
-  height:100%;
+  max-width:300px;
+  height:260px;
   object-fit:contain;
-  padding:15px;
+  display:block;
+  margin:auto;
+  border-radius:20px;
 }
 
-.dark .hero-logo{
-  background:#203d26;
+.hero-info{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:20px;
 }
 
-/* =========================
-   GENERAL
-========================= */
-
-section{
-  padding:65px 0;
-}
-
-.section-head{
+.hero-info div{
+  padding:13px;
+  border-radius:14px;
+  background:var(--bg);
   text-align:center;
-  margin-bottom:30px;
 }
 
-.section-head h2{
-  font-size:clamp(28px,4vw,42px);
-  margin-bottom:7px;
+.hero-info strong{
+  display:block;
+  font-size:20px;
+  color:var(--primary);
 }
 
-.section-head p{
-  color:#6a786c;
+.hero-info span{
+  font-size:12px;
+  color:var(--muted);
 }
 
-.dark .section-head p{
-  color:#aebbae;
-}
-
-/* =========================
-   STATS
-========================= */
-
+/* STATS */
 .stats{
-  padding-top:0;
+  padding:10px 0 55px;
 }
 
 .stats-grid{
@@ -360,148 +345,197 @@ section{
 }
 
 .stat{
-  background:white;
+  background:var(--card);
+  border:1px solid var(--border);
   padding:20px;
-  border-radius:17px;
-  border:1px solid #e4ebe4;
+  border-radius:18px;
+  box-shadow:0 5px 20px rgba(0,0,0,.04);
 }
 
-.dark .stat{
-  background:#172019;
-  border-color:#29362c;
+.stat-icon{
+  font-size:25px;
 }
 
 .stat strong{
   display:block;
-  font-size:25px;
-  color:#19713b;
+  font-size:24px;
+  margin-top:5px;
 }
 
 .stat span{
-  color:#667568;
+  color:var(--muted);
   font-size:13px;
 }
 
-.dark .stat span{
-  color:#aab9ad;
+/* SECTION */
+section{
+  padding:75px 0;
 }
 
-/* =========================
-   ABOUT
-========================= */
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:20px;
+  margin-bottom:28px;
+}
 
+.section-kicker{
+  color:var(--primary);
+  font-size:13px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+}
+
+.section-title{
+  font-size:clamp(28px,4vw,42px);
+  line-height:1.15;
+  margin-top:5px;
+}
+
+.section-desc{
+  color:var(--muted);
+  max-width:650px;
+}
+
+/* ABOUT */
 .about-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:22px;
+  gap:25px;
 }
 
-.about-card{
-  background:white;
-  border:1px solid #e4ebe4;
-  border-radius:20px;
-  padding:25px;
+.info-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:28px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
 }
 
-.dark .about-card{
-  background:#172019;
-  border-color:#29362c;
+.info-card h3{
+  margin-bottom:10px;
 }
 
-.about-card h3{
-  color:#19713b;
-  margin-bottom:12px;
+.info-card p{
+  color:var(--muted);
 }
 
-.check-list{
-  list-style:none;
+.feature-list{
+  margin-top:20px;
   display:grid;
-  gap:9px;
+  gap:12px;
 }
 
-/* =========================
-   CATALOG
-========================= */
-
-.catalog{
-  background:#eef5ee;
-}
-
-.dark .catalog{
-  background:#121a14;
-}
-
-.toolbar{
-  background:white;
-  border-radius:17px;
-  padding:15px;
+.feature{
   display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:18px;
-  border:1px solid #e0e8e0;
+  gap:12px;
+  align-items:flex-start;
 }
 
-.dark .toolbar{
-  background:#172019;
-  border-color:#29362c;
+.feature-icon{
+  width:38px;
+  height:38px;
+  flex:none;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:var(--primary-soft);
 }
 
-.search{
-  flex:1;
-  min-width:220px;
+/* CATALOG */
+.catalog-toolbar{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:17px;
+  border-radius:20px;
+  margin-bottom:22px;
+  box-shadow:0 6px 22px rgba(0,0,0,.04);
 }
 
-.input,
-select,
-textarea{
+.toolbar-top{
+  display:grid;
+  grid-template-columns:1fr 180px;
+  gap:12px;
+}
+
+.search-box{
+  position:relative;
+}
+
+.search-box input{
   width:100%;
-  border:1px solid #d7e1d7;
-  border-radius:10px;
-  padding:11px 12px;
+  height:50px;
+  padding:0 15px 0 45px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--bg);
+  color:var(--text);
   outline:none;
-  background:white;
-  color:#18351f;
 }
 
-.dark .input,
-.dark select,
-.dark textarea{
-  background:#101710;
-  color:#e8f4e9;
-  border-color:#334234;
+.search-box input:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px var(--primary-soft);
 }
 
-.input:focus,
-select:focus,
-textarea:focus{
-  border-color:#19713b;
+.search-icon{
+  position:absolute;
+  left:16px;
+  top:13px;
 }
 
-.category-list{
+.sort-select{
+  height:50px;
+  padding:0 12px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--bg);
+  color:var(--text);
+  outline:none;
+}
+
+.category-scroll{
   display:flex;
   gap:8px;
-  flex-wrap:wrap;
-  margin-bottom:23px;
+  overflow-x:auto;
+  padding:15px 2px 2px;
+  scrollbar-width:thin;
 }
 
 .category-btn{
-  border:0;
-  padding:8px 13px;
-  border-radius:30px;
-  background:white;
-  color:#416047;
-  font-weight:700;
-}
-
-.dark .category-btn{
-  background:#1b271d;
-  color:#b8cbb9;
+  flex:none;
+  border:1px solid var(--border);
+  background:var(--bg);
+  color:var(--text);
+  border-radius:50px;
+  padding:9px 14px;
+  font-weight:800;
+  font-size:13px;
 }
 
 .category-btn.active{
-  background:#19713b;
+  background:var(--primary);
   color:white;
+  border-color:var(--primary);
+}
+
+.catalog-meta{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin:17px 0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.clear-filter{
+  color:var(--primary);
+  font-weight:800;
+  border:0;
+  background:none;
 }
 
 .product-grid{
@@ -510,303 +544,390 @@ textarea:focus{
   gap:17px;
 }
 
-.product{
-  background:white;
-  border:1px solid #e0e8e0;
-  border-radius:18px;
+.product-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
   overflow:hidden;
+  box-shadow:0 6px 22px rgba(0,0,0,.045);
   transition:.2s;
+  display:flex;
+  flex-direction:column;
 }
 
-.product:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 30px rgba(34,74,40,.1);
+.product-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
 }
 
-.dark .product{
-  background:#172019;
-  border-color:#29362c;
-}
-
-.product-image{
-  height:175px;
+.product-visual{
+  position:relative;
+  height:190px;
+  background:linear-gradient(145deg,var(--primary-soft),var(--bg));
   display:grid;
   place-items:center;
-  background:linear-gradient(145deg,#e5f5e4,#f8fff6);
-  font-size:72px;
-  position:relative;
   overflow:hidden;
 }
 
-.dark .product-image{
-  background:linear-gradient(145deg,#203c26,#172019);
-}
-
-.product-image img{
+.product-visual img{
   width:100%;
   height:100%;
   object-fit:cover;
-  display:block;
+}
+
+.product-emoji{
+  font-size:75px;
 }
 
 .product-badge{
   position:absolute;
-  top:9px;
-  left:9px;
-  z-index:2;
-  background:#19713b;
-  color:white;
-  padding:4px 8px;
-  border-radius:7px;
+  top:10px;
+  left:10px;
+  padding:5px 9px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:50px;
+  font-size:11px;
+  font-weight:900;
+}
+
+.stock-pill{
+  position:absolute;
+  top:10px;
+  right:10px;
+  padding:5px 9px;
+  border-radius:50px;
   font-size:10px;
-  font-weight:bold;
+  font-weight:900;
+}
+
+.stock-good{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.stock-low{
+  background:#fef3c7;
+  color:#92400e;
+}
+
+.stock-empty{
+  background:#fee2e2;
+  color:#991b1b;
 }
 
 .product-body{
-  padding:15px;
-}
-
-.product-body h3{
-  font-size:17px;
-  margin-bottom:3px;
+  padding:17px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
 }
 
 .product-category{
-  color:#718073;
-  font-size:12px;
-  margin-bottom:9px;
+  font-size:11px;
+  color:var(--muted);
+  font-weight:800;
+  margin-bottom:3px;
 }
 
-.dark .product-category{
-  color:#9aaa9d;
+.product-name{
+  font-size:18px;
+  margin-bottom:6px;
+}
+
+.price-row{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:5px;
+  margin-bottom:5px;
 }
 
 .price{
-  font-size:18px;
+  font-size:20px;
   font-weight:900;
-  color:#19713b;
+  color:var(--primary);
 }
 
-.wholesale{
-  font-size:11px;
-  color:#748176;
-  margin-bottom:10px;
-}
-
-.product-footer{
-  display:flex;
-  gap:7px;
-}
-
-.quantity{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:5px;
-  background:#f1f6f1;
-  border-radius:9px;
-  padding:0 5px;
-}
-
-.dark .quantity{
-  background:#101710;
-}
-
-.quantity button{
-  border:0;
-  background:transparent;
-  font-size:18px;
-  width:25px;
-  height:34px;
-}
-
-.empty{
-  grid-column:1/-1;
-  text-align:center;
-  padding:45px;
-  color:#718073;
-}
-
-/* =========================
-   LOCATION
-========================= */
-
-.location-grid{
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:20px;
-}
-
-.location-card{
-  background:white;
-  border:1px solid #e1e9e1;
-  border-radius:20px;
-  padding:24px;
-}
-
-.dark .location-card{
-  background:#172019;
-  border-color:#29362c;
-}
-
-.map{
-  width:100%;
-  height:350px;
-  border:0;
-  border-radius:16px;
-}
-
-/* =========================
-   ADMIN
-========================= */
-
-.admin{
-  background:#eaf2ea;
-}
-
-.dark .admin{
-  background:#0f160f;
-}
-
-.admin-login{
-  width:min(430px,100%);
-  margin:auto;
-  background:white;
-  padding:24px;
-  border-radius:19px;
-}
-
-.dark .admin-login{
-  background:#172019;
-}
-
-.admin-panel{
-  display:none;
-}
-
-.admin-panel.show{
-  display:block;
-}
-
-.admin-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:20px;
-}
-
-.dashboard-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-  margin-bottom:23px;
-}
-
-.dashboard-card{
-  background:white;
-  border-radius:16px;
-  padding:18px;
-  border:1px solid #dce6dc;
-}
-
-.dark .dashboard-card{
-  background:#172019;
-  border-color:#29362c;
-}
-
-.dashboard-card span{
-  color:#6d796f;
+.unit{
+  color:var(--muted);
   font-size:12px;
 }
 
-.dashboard-card strong{
-  display:block;
-  font-size:25px;
-  color:#19713b;
+.wholesale{
+  padding:7px 9px;
+  background:var(--primary-soft);
+  border-radius:10px;
+  font-size:11px;
+  color:var(--primary-dark);
+  margin:8px 0 12px;
 }
 
-.admin-table{
-  width:100%;
-  border-collapse:collapse;
-  background:white;
+.stock-text{
+  font-size:11px;
+  color:var(--muted);
+  margin-bottom:12px;
 }
 
-.dark .admin-table{
-  background:#172019;
+.product-actions{
+  display:grid;
+  grid-template-columns:105px 1fr;
+  gap:8px;
+  margin-top:auto;
 }
 
-.admin-table th,
-.admin-table td{
-  padding:11px;
-  border-bottom:1px solid #e5ebe5;
-  text-align:left;
+.qty-control{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--bg);
+  overflow:hidden;
+}
+
+.qty-control button{
+  width:32px;
+  height:40px;
+  border:0;
+  background:transparent;
+  color:var(--text);
+  font-weight:900;
+}
+
+.qty-control span{
   font-size:13px;
+  font-weight:900;
+  min-width:24px;
+  text-align:center;
 }
 
-.dark .admin-table th,
-.dark .admin-table td{
-  border-color:#2b362d;
+.add-btn{
+  border:0;
+  border-radius:12px;
+  background:var(--primary);
+  color:white;
+  font-weight:900;
+}
+
+.add-btn:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+/* EMPTY */
+.empty-state{
+  text-align:center;
+  padding:55px 20px;
+  background:var(--card);
+  border:1px dashed var(--border);
+  border-radius:20px;
+  grid-column:1/-1;
+}
+
+.empty-icon{
+  font-size:50px;
+  margin-bottom:10px;
+}
+
+/* LOCATION */
+.location-grid{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:22px;
+}
+
+.map-box{
+  min-height:390px;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:var(--card);
+}
+
+.map-box iframe{
+  width:100%;
+  height:100%;
+  min-height:390px;
+  border:0;
+}
+
+.contact-box{
+  display:grid;
+  gap:14px;
+}
+
+.contact-item{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:18px;
+  border-radius:17px;
+}
+
+.contact-item small{
+  display:block;
+  color:var(--muted);
+  margin-bottom:4px;
+}
+
+.contact-item strong{
+  font-size:16px;
+}
+
+/* ADMIN */
+.admin-login,
+.admin-panel{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:25px;
+  box-shadow:var(--shadow);
+}
+
+.login-box{
+  max-width:430px;
+  margin:auto;
+}
+
+.form-group{
+  margin-bottom:14px;
+}
+
+.form-group label{
+  display:block;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+.form-control{
+  width:100%;
+  padding:12px 13px;
+  border:1px solid var(--border);
+  background:var(--bg);
+  color:var(--text);
+  border-radius:12px;
+  outline:none;
+}
+
+.form-control:focus{
+  border-color:var(--primary);
+}
+
+.admin-stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin:20px 0;
+}
+
+.admin-stat{
+  padding:17px;
+  border-radius:16px;
+  background:var(--bg);
+}
+
+.admin-stat strong{
+  display:block;
+  font-size:22px;
+  color:var(--primary);
+}
+
+.admin-stat span{
+  font-size:11px;
+  color:var(--muted);
 }
 
 .admin-actions{
   display:flex;
-  gap:5px;
   flex-wrap:wrap;
+  gap:9px;
+  margin-bottom:18px;
 }
 
-/* =========================
-   CART
-========================= */
+.table-wrap{
+  overflow:auto;
+  border:1px solid var(--border);
+  border-radius:15px;
+}
 
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:760px;
+}
+
+th,
+td{
+  padding:12px;
+  border-bottom:1px solid var(--border);
+  text-align:left;
+  font-size:12px;
+}
+
+th{
+  background:var(--bg);
+  font-weight:900;
+}
+
+tr:last-child td{
+  border-bottom:0;
+}
+
+/* CART */
 .overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.45);
-  z-index:1999;
-  display:none;
+  background:rgba(0,0,0,.48);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  z-index:1500;
 }
 
 .overlay.show{
-  display:block;
+  opacity:1;
+  pointer-events:auto;
 }
 
 .cart-drawer{
   position:fixed;
   top:0;
-  right:-440px;
-  width:min(430px,95%);
+  right:0;
+  width:min(440px,94vw);
   height:100vh;
-  z-index:2000;
-  background:white;
-  box-shadow:-10px 0 40px rgba(0,0,0,.15);
-  transition:.3s;
+  background:var(--card);
+  z-index:1600;
+  transform:translateX(105%);
+  transition:.3s ease;
+  box-shadow:-15px 0 45px rgba(0,0,0,.18);
   display:flex;
   flex-direction:column;
 }
 
-.dark .cart-drawer{
-  background:#141c16;
-}
-
-.cart-drawer.open{
-  right:0;
+.cart-drawer.show{
+  transform:translateX(0);
 }
 
 .cart-head{
-  padding:18px;
-  border-bottom:1px solid #e3e8e3;
+  padding:19px;
+  border-bottom:1px solid var(--border);
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
 }
 
-.dark .cart-head{
-  border-color:#2c382e;
+.cart-head h3{
+  font-size:21px;
 }
 
-.cart-items{
+.cart-head small{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.cart-body{
   flex:1;
   overflow:auto;
   padding:15px;
@@ -814,78 +935,173 @@ textarea:focus{
 
 .cart-item{
   display:grid;
-  grid-template-columns:50px 1fr auto;
-  gap:9px;
-  padding:11px 0;
-  border-bottom:1px solid #edf0ed;
+  grid-template-columns:58px 1fr auto;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid var(--border);
 }
 
-.dark .cart-item{
-  border-color:#293229;
-}
-
-.cart-image{
-  width:50px;
-  height:50px;
-  border-radius:11px;
+.cart-thumb{
+  width:58px;
+  height:58px;
+  border-radius:13px;
+  background:var(--primary-soft);
+  display:grid;
+  place-items:center;
   overflow:hidden;
-  background:#edf6ed;
+  font-size:27px;
 }
 
-.cart-image img{
+.cart-thumb img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-.cart-emoji{
-  width:50px;
-  height:50px;
-  display:grid;
-  place-items:center;
-  background:#edf6ed;
-  border-radius:11px;
-  font-size:26px;
-}
-
-.dark .cart-emoji{
-  background:#213023;
-}
-
-.cart-item strong{
-  display:block;
-}
-
-.cart-item small{
-  color:#788379;
-}
-
-.cart-total{
-  padding:17px;
-  border-top:1px solid #e3e8e3;
-}
-
-.dark .cart-total{
-  border-color:#2c382e;
-}
-
-.total-row{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:12px;
-  font-size:18px;
+.cart-item-name{
+  font-size:14px;
   font-weight:900;
 }
 
-/* =========================
-   MODAL
-========================= */
+.cart-item-price{
+  color:var(--primary);
+  font-size:12px;
+  font-weight:800;
+}
 
+.cart-item-controls{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  margin-top:7px;
+}
+
+.cart-item-controls button{
+  width:28px;
+  height:28px;
+  border:1px solid var(--border);
+  background:var(--bg);
+  color:var(--text);
+  border-radius:8px;
+  font-weight:900;
+}
+
+.cart-item-controls span{
+  min-width:24px;
+  text-align:center;
+  font-size:12px;
+  font-weight:900;
+}
+
+.cart-remove{
+  border:0!important;
+  background:transparent!important;
+  color:var(--danger)!important;
+  font-size:14px;
+}
+
+.cart-summary{
+  padding:17px;
+  border-top:1px solid var(--border);
+  background:var(--card);
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:7px;
+  font-size:13px;
+}
+
+.summary-total{
+  display:flex;
+  justify-content:space-between;
+  padding-top:12px;
+  margin-top:8px;
+  border-top:1px dashed var(--border);
+  font-size:19px;
+  font-weight:900;
+}
+
+.summary-total strong{
+  color:var(--primary);
+}
+
+.cart-note{
+  margin:11px 0;
+  padding:10px;
+  background:var(--primary-soft);
+  color:var(--primary-dark);
+  border-radius:11px;
+  font-size:11px;
+}
+
+.cart-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.cart-buttons .checkout-full{
+  grid-column:1/-1;
+}
+
+.empty-cart{
+  min-height:55vh;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  color:var(--muted);
+}
+
+.empty-cart-icon{
+  font-size:60px;
+  margin-bottom:10px;
+}
+
+/* MOBILE CART BAR */
+.mobile-cart-bar{
+  display:none;
+  position:fixed;
+  left:12px;
+  right:12px;
+  bottom:12px;
+  z-index:1300;
+  padding:10px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);
+  box-shadow:0 10px 30px rgba(0,0,0,.18);
+}
+
+body.dark .mobile-cart-bar{
+  background:rgba(21,32,25,.95);
+}
+
+.mobile-cart-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.mobile-cart-info strong{
+  display:block;
+  font-size:14px;
+}
+
+.mobile-cart-info span{
+  font-size:11px;
+  color:var(--muted);
+}
+
+/* MODAL */
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.55);
-  z-index:3000;
+  z-index:2000;
   display:none;
   place-items:center;
   padding:15px;
@@ -895,263 +1111,425 @@ textarea:focus{
   display:grid;
 }
 
-.modal-box{
-  width:min(620px,100%);
-  max-height:92vh;
-  overflow:auto;
-  background:white;
-  border-radius:20px;
-  padding:24px;
+.modal-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.58);
 }
 
-.dark .modal-box{
-  background:#172019;
+.modal-card{
+  position:relative;
+  width:min(600px,100%);
+  max-height:92vh;
+  overflow:auto;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:22px;
+  box-shadow:0 25px 80px rgba(0,0,0,.3);
 }
 
 .modal-head{
+  position:sticky;
+  top:0;
+  z-index:2;
+  padding:17px 20px;
+  background:var(--card);
+  border-bottom:1px solid var(--border);
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  margin-bottom:17px;
+  align-items:center;
 }
 
-.close{
-  border:0;
-  background:#edf1ed;
-  width:35px;
-  height:35px;
-  border-radius:9px;
+.modal-body{
+  padding:20px;
 }
 
-.dark .close{
-  background:#273329;
-  color:white;
+.modal-close{
+  width:38px;
+  height:38px;
+  border:1px solid var(--border);
+  background:var(--bg);
+  color:var(--text);
+  border-radius:11px;
+  font-weight:900;
 }
 
-.form-grid{
+/* CHECKOUT SUMMARY */
+.checkout-summary{
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:13px;
+  margin-bottom:18px;
+}
+
+.checkout-summary-title{
+  font-weight:900;
+  margin-bottom:9px;
+}
+
+.checkout-line{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:12px;
+  padding:5px 0;
+}
+
+.checkout-total{
+  display:flex;
+  justify-content:space-between;
+  border-top:1px dashed var(--border);
+  margin-top:7px;
+  padding-top:10px;
+  font-size:16px;
+  font-weight:900;
+}
+
+.checkout-total strong{
+  color:var(--primary);
+}
+
+/* PRODUCT DETAIL */
+.detail-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
+  grid-template-columns:180px 1fr;
+  gap:20px;
 }
 
-.form-group{
-  margin-bottom:12px;
+.detail-image{
+  width:180px;
+  height:180px;
+  border-radius:20px;
+  background:var(--primary-soft);
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  font-size:65px;
 }
 
-.form-group.full{
-  grid-column:1/-1;
+.detail-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.form-group label{
-  display:block;
-  font-size:13px;
-  font-weight:bold;
+.detail-info h2{
   margin-bottom:5px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+.detail-price{
+  color:var(--primary);
+  font-size:25px;
+  font-weight:900;
+}
 
-footer{
-  background:#12351d;
+.detail-list{
+  display:grid;
+  gap:8px;
+  margin-top:15px;
+}
+
+.detail-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  border-bottom:1px dashed var(--border);
+  padding-bottom:7px;
+  font-size:13px;
+}
+
+.detail-row span{
+  color:var(--muted);
+}
+
+/* TOAST */
+.toast-wrap{
+  position:fixed;
+  top:88px;
+  right:16px;
+  z-index:3000;
+  display:grid;
+  gap:8px;
+}
+
+.toast{
+  min-width:250px;
+  max-width:360px;
+  padding:13px 15px;
+  border-radius:13px;
+  background:#17221a;
   color:white;
-  padding:42px 0 22px;
+  box-shadow:var(--shadow);
+  animation:toastIn .25s ease;
+  font-size:13px;
+  font-weight:700;
+}
+
+.toast.success{
+  background:#166534;
+}
+
+.toast.error{
+  background:#991b1b;
+}
+
+@keyframes toastIn{
+  from{
+    transform:translateX(30px);
+    opacity:0;
+  }
+  to{
+    transform:none;
+    opacity:1;
+  }
+}
+
+/* FOOTER */
+footer{
+  padding:40px 0 90px;
+  border-top:1px solid var(--border);
+  background:var(--card);
 }
 
 .footer-grid{
   display:grid;
-  grid-template-columns:1.2fr 1fr 1fr;
+  grid-template-columns:1fr auto;
   gap:25px;
-}
-
-.footer-brand{
-  display:flex;
   align-items:center;
-  gap:10px;
-  margin-bottom:12px;
 }
 
-.footer-brand img{
-  width:48px;
-  height:48px;
-  border-radius:12px;
-  object-fit:cover;
-  background:white;
+.footer-title{
+  font-weight:900;
+  font-size:20px;
 }
 
-footer h3{
-  margin-bottom:10px;
+.footer-text{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:5px;
 }
 
-footer p,
-footer li{
-  color:#c6d7c9;
-  font-size:14px;
-}
-
-footer ul{
-  list-style:none;
-  display:grid;
-  gap:6px;
-}
-
-.footer-bottom{
-  margin-top:27px;
-  padding-top:17px;
-  border-top:1px solid rgba(255,255,255,.15);
-  text-align:center;
-  color:#bdd0c0;
+.footer-copy{
+  text-align:right;
+  color:var(--muted);
   font-size:12px;
 }
 
-/* =========================
-   TOAST
-========================= */
-
-.toast{
-  position:fixed;
-  left:50%;
-  bottom:22px;
-  transform:translate(-50%,20px);
-  background:#173a20;
-  color:white;
-  padding:11px 17px;
-  border-radius:11px;
-  z-index:5000;
-  opacity:0;
-  pointer-events:none;
-  transition:.3s;
-  font-size:13px;
-}
-
-.toast.show{
-  opacity:1;
-  transform:translate(-50%,0);
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:950px){
-
+/* RESPONSIVE */
+@media(max-width:1050px){
   .product-grid{
     grid-template-columns:repeat(3,1fr);
   }
 
-  .stats-grid,
-  .dashboard-grid{
-    grid-template-columns:repeat(2,1fr);
+  .nav-links{
+    gap:2px;
   }
 }
 
-@media(max-width:760px){
-
-  .nav{
-    position:relative;
-  }
-
-  .nav-links{
-    position:absolute;
-    top:70px;
-    left:0;
-    right:0;
-    background:white;
-    padding:17px;
-    display:none;
-    flex-direction:column;
-    border-bottom:1px solid #ddd;
-  }
-
-  .dark .nav-links{
-    background:#141c16;
-    border-color:#29362c;
-  }
-
-  .nav-links.show{
-    display:flex;
-  }
-
-  .menu-btn{
-    display:block;
-  }
-
+@media(max-width:850px){
   .hero-grid,
   .about-grid,
   .location-grid{
     grid-template-columns:1fr;
   }
 
+  .hero{
+    padding-top:45px;
+  }
+
+  .hero-card{
+    max-width:500px;
+    margin:auto;
+  }
+
+  .stats-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
   .product-grid{
     grid-template-columns:repeat(2,1fr);
+  }
+
+  .admin-stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:72px;
+    left:0;
+    right:0;
+    background:var(--card);
+    border-bottom:1px solid var(--border);
+    padding:12px;
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .nav-links.show{
+    display:flex;
+  }
+
+  .nav-links a{
+    padding:12px;
+  }
+
+  .mobile-menu-btn{
+    display:grid;
+  }
+}
+
+@media(max-width:600px){
+  body{
+    padding-bottom:70px;
+  }
+
+  .container{
+    width:94%;
+  }
+
+  section{
+    padding:55px 0;
+  }
+
+  .navbar{
+    min-height:64px;
+  }
+
+  .brand img{
+    width:42px;
+    height:42px;
+  }
+
+  .brand-text strong{
+    font-size:14px;
+  }
+
+  .brand-text span{
+    font-size:9px;
+  }
+
+  .header-actions{
+    gap:5px;
+  }
+
+  .icon-btn{
+    width:39px;
+    height:39px;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .hero-buttons{
+    display:grid;
+  }
+
+  .stats-grid{
+    gap:9px;
+  }
+
+  .stat{
+    padding:14px;
+  }
+
+  .stat strong{
+    font-size:20px;
+  }
+
+  .toolbar-top{
+    grid-template-columns:1fr;
+  }
+
+  .catalog-meta{
+    align-items:flex-start;
+  }
+
+  .product-grid{
+    gap:10px;
+  }
+
+  .product-visual{
+    height:145px;
+  }
+
+  .product-emoji{
+    font-size:57px;
+  }
+
+  .product-body{
+    padding:12px;
+  }
+
+  .product-name{
+    font-size:15px;
+  }
+
+  .price{
+    font-size:17px;
+  }
+
+  .product-actions{
+    grid-template-columns:1fr;
+  }
+
+  .qty-control{
+    height:38px;
+  }
+
+  .add-btn{
+    height:40px;
+  }
+
+  .location-grid{
+    gap:14px;
+  }
+
+  .map-box,
+  .map-box iframe{
+    min-height:300px;
+  }
+
+  .detail-grid{
+    grid-template-columns:1fr;
+  }
+
+  .detail-image{
+    width:100%;
+    height:200px;
+  }
+
+  .mobile-cart-bar{
+    display:block;
   }
 
   .footer-grid{
     grid-template-columns:1fr;
   }
 
-  .logo{
-    font-size:14px;
-  }
-
-  .logo img{
-    width:38px;
-    height:38px;
+  .footer-copy{
+    text-align:left;
   }
 }
 
-@media(max-width:480px){
-
-  .hero{
-    padding-top:45px;
-  }
-
-  .stats-grid,
-  .dashboard-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
+@media(max-width:390px){
   .product-grid{
-    grid-template-columns:1fr 1fr;
-    gap:9px;
-  }
-
-  .product-image{
-    height:145px;
-    font-size:55px;
-  }
-
-  .product-body{
-    padding:11px;
-  }
-
-  .product-body h3{
-    font-size:15px;
-  }
-
-  .price{
-    font-size:16px;
-  }
-
-  .form-grid{
     grid-template-columns:1fr;
   }
 
-  .form-group.full{
-    grid-column:auto;
+  .product-visual{
+    height:190px;
   }
 
-  .hero-buttons .btn{
-    width:100%;
-  }
-
-  .hero-logo{
-    height:270px;
-  }
-
-  .logo-text small{
-    display:none;
+  .product-actions{
+    grid-template-columns:105px 1fr;
   }
 }
 </style>
@@ -1159,3098 +1537,2458 @@ footer ul{
 
 <body>
 
-<!-- HEADER -->
 <header>
-<div class="container nav">
+  <div class="container navbar">
 
-<a href="#beranda" class="logo">
+    <a href="#beranda" class="brand">
+      <img src="LOGO SUGIH SAWARGI.jpg" alt="Logo SUGIH SAWARGI"
+           onerror="this.style.display='none'">
+      <div class="brand-text">
+        <strong>SUGIH SAWARGI</strong>
+        <span>Distribusi Sayuran Segar</span>
+      </div>
+    </a>
 
-<img
-src="LOGO%20SUGIH%20SAWARGI.jpg"
-alt="Logo SUGIH SAWARGI VEGETABLES">
+    <nav class="nav-links" id="navLinks">
+      <a href="#beranda" onclick="closeMobileMenu()">Beranda</a>
+      <a href="#tentang" onclick="closeMobileMenu()">Tentang</a>
+      <a href="#produk" onclick="closeMobileMenu()">Produk</a>
+      <a href="#lokasi" onclick="closeMobileMenu()">Lokasi</a>
+      <a href="#admin" onclick="closeMobileMenu()">Admin</a>
+    </nav>
 
-<div class="logo-text">
-SUGIH SAWARGI
-<small>VEGETABLES</small>
-</div>
+    <div class="header-actions">
+      <button class="icon-btn" onclick="toggleDark()" title="Mode gelap">🌙</button>
 
-</a>
+      <button class="icon-btn cart-btn" onclick="openCart()" title="Keranjang">
+        🛒
+        <span class="cart-count" id="headerCartCount">0</span>
+      </button>
 
-<nav class="nav-links" id="navLinks">
-<a href="#beranda">Beranda</a>
-<a href="#tentang">Tentang</a>
-<a href="#produk">Produk</a>
-<a href="#lokasi">Lokasi</a>
-<a href="#admin">Admin</a>
-</nav>
+      <button class="icon-btn mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu">
+        ☰
+      </button>
+    </div>
 
-<div class="nav-actions">
-
-<button
-class="icon-btn"
-id="darkBtn"
-onclick="toggleDark()"
-aria-label="Mode gelap">
-🌙
-</button>
-
-<button
-class="icon-btn cart-btn"
-onclick="openCart()"
-aria-label="Keranjang">
-
-🛒
-<span class="cart-count" id="cartCount">0</span>
-
-</button>
-
-<button
-class="icon-btn menu-btn"
-onclick="toggleMenu()"
-aria-label="Menu">
-☰
-</button>
-
-</div>
-
-</div>
+  </div>
 </header>
 
+<main>
 
 <!-- HERO -->
-
 <section class="hero" id="beranda">
+  <div class="container hero-grid">
 
-<div class="container hero-grid">
+    <div>
+      <div class="hero-badge">🥬 Segar • Berkualitas • Siap Distribusi</div>
 
-<div>
+      <h1>
+        Belanja Sayuran
+        <span>Segar & Berkualitas</span>
+      </h1>
 
-<span class="badge">
-🌱 SAYUR SEGAR • DISTRIBUSI
-</span>
+      <p>
+        SUGIH SAWARGI hadir untuk memenuhi kebutuhan sayuran
+        rumah tangga, UMKM, warung, restoran, dan kebutuhan distribusi
+        di Cisarua Bandung Barat.
+      </p>
 
-<h1>
-Belanja Sayuran
-<span>Segar & Berkualitas</span>
-</h1>
+      <div class="hero-buttons">
+        <a href="#produk" class="btn btn-primary">🛒 Belanja Sekarang</a>
+        <a href="https://wa.me/6282115477659?text=Halo%20SUGIH%20SAWARGI%2C%20saya%20ingin%20bertanya%20tentang%20produk."
+           target="_blank"
+           class="btn btn-secondary">
+          💬 Chat Admin
+        </a>
+      </div>
+    </div>
 
-<p>
-<strong>SUGIH SAWARGI VEGETABLES</strong>
-menyediakan kebutuhan sayuran segar
-untuk rumah tangga, UMKM, warung, restoran,
-katering dan kebutuhan usaha.
-</p>
+    <div class="hero-card">
+      <img src="LOGO SUGIH SAWARGI.jpg"
+           alt="SUGIH SAWARGI"
+           class="hero-logo"
+           onerror="this.style.display='none'">
 
-<div class="hero-buttons">
+      <div class="hero-info">
+        <div>
+          <strong id="heroProductCount">22</strong>
+          <span>Produk</span>
+        </div>
 
-<a href="#produk" class="btn btn-primary">
-🛒 Lihat Produk
-</a>
+        <div>
+          <strong>24/7</strong>
+          <span>Pesan Online</span>
+        </div>
 
-<a
-href="https://wa.me/6282115477659?text=Halo%20SUGIH%20SAWARGI%20VEGETABLES%2C%20saya%20ingin%20bertanya%20tentang%20produk."
-target="_blank"
-rel="noopener"
-class="btn btn-secondary">
+        <div>
+          <strong>WA</strong>
+          <span>Order Mudah</span>
+        </div>
 
-💬 WhatsApp Admin
+        <div>
+          <strong>BB</strong>
+          <span>Bandung Barat</span>
+        </div>
+      </div>
+    </div>
 
-</a>
-
-</div>
-
-</div>
-
-
-<div class="hero-card">
-
-<div class="hero-logo">
-
-<img
-src="LOGO%20SUGIH%20SAWARGI.jpg"
-alt="SUGIH SAWARGI VEGETABLES">
-
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
-
 
 <!-- STATS -->
-
 <section class="stats">
+  <div class="container stats-grid">
 
-<div class="container stats-grid">
+    <div class="stat">
+      <div class="stat-icon">🥬</div>
+      <strong id="statProducts">22</strong>
+      <span>Pilihan Produk</span>
+    </div>
 
-<div class="stat">
-<strong id="statProducts">20+</strong>
-<span>Produk Sayuran</span>
-</div>
+    <div class="stat">
+      <div class="stat-icon">🌱</div>
+      <strong>Segar</strong>
+      <span>Produk berkualitas</span>
+    </div>
 
-<div class="stat">
-<strong>Segar</strong>
-<span>Kualitas Terjaga</span>
-</div>
+    <div class="stat">
+      <div class="stat-icon">🏪</div>
+      <strong>UMKM</strong>
+      <span>Mendukung usaha lokal</span>
+    </div>
 
-<div class="stat">
-<strong>UMKM</strong>
-<span>Siap Melayani Usaha</span>
-</div>
+    <div class="stat">
+      <div class="stat-icon">📍</div>
+      <strong>Cisarua</strong>
+      <span>Bandung Barat</span>
+    </div>
 
-<div class="stat">
-<strong>Bandung Barat</strong>
-<span>Area Distribusi</span>
-</div>
-
-</div>
-
+  </div>
 </section>
 
-
-<!-- ABOUT -->
-
+<!-- TENTANG -->
 <section id="tentang">
+  <div class="container">
 
-<div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">Tentang Kami</div>
+        <h2 class="section-title">Dari kebun menuju kebutuhan Anda.</h2>
+      </div>
+    </div>
 
-<div class="section-head">
+    <div class="about-grid">
 
-<h2>Tentang SUGIH SAWARGI VEGETABLES</h2>
+      <div class="info-card">
+        <h3>🌿 SUGIH SAWARGI</h3>
+        <p>
+          SUGIH SAWARGI merupakan toko dan distribusi sayuran
+          yang menyediakan berbagai kebutuhan sayuran segar
+          untuk konsumen dan pelaku usaha.
+        </p>
 
-<p>
-Partner kebutuhan sayuran segar Anda.
-</p>
+        <div class="feature-list">
+          <div class="feature">
+            <div class="feature-icon">🥬</div>
+            <div>
+              <strong>Pilihan Beragam</strong>
+              <p>Sayuran hijau, umbi, bumbu, cabai dan lainnya.</p>
+            </div>
+          </div>
 
-</div>
+          <div class="feature">
+            <div class="feature-icon">📦</div>
+            <div>
+              <strong>Cocok untuk Distribusi</strong>
+              <p>Tersedia informasi stok dan harga grosir.</p>
+            </div>
+          </div>
 
+          <div class="feature">
+            <div class="feature-icon">💬</div>
+            <div>
+              <strong>Order via WhatsApp</strong>
+              <p>Pesanan dapat dikonfirmasi langsung dengan admin.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<div class="about-grid">
+      <div class="info-card">
+        <h3>Kenapa belanja di sini?</h3>
 
-<div class="about-card">
+        <div class="feature-list">
 
-<h3>🌱 Siapa Kami?</h3>
+          <div class="feature">
+            <div class="feature-icon">✅</div>
+            <div>
+              <strong>Informasi Produk Jelas</strong>
+              <p>Harga, satuan, kategori, dan stok ditampilkan.</p>
+            </div>
+          </div>
 
-<p>
-SUGIH SAWARGI VEGETABLES merupakan usaha
-distribusi sayuran yang menyediakan berbagai
-kebutuhan bahan segar untuk kebutuhan harian
-maupun usaha.
-</p>
+          <div class="feature">
+            <div class="feature-icon">🛒</div>
+            <div>
+              <strong>Keranjang Belanja</strong>
+              <p>Pilih banyak produk sekaligus sebelum checkout.</p>
+            </div>
+          </div>
 
-<br>
+          <div class="feature">
+            <div class="feature-icon">📱</div>
+            <div>
+              <strong>Nyaman dari HP</strong>
+              <p>Tampilan dibuat responsif untuk smartphone.</p>
+            </div>
+          </div>
 
-<p>
-Sistem pemesanan terus dikembangkan agar pelanggan
-dapat melihat produk dan melakukan pemesanan
-dengan lebih mudah.
-</p>
+          <div class="feature">
+            <div class="feature-icon">🤝</div>
+            <div>
+              <strong>Konfirmasi Admin</strong>
+              <p>Harga grosir dan detail pesanan dikonfirmasi melalui WhatsApp.</p>
+            </div>
+          </div>
 
-</div>
+        </div>
+      </div>
 
-
-<div class="about-card">
-
-<h3>✅ Keunggulan</h3>
-
-<ul class="check-list">
-
-<li>🥬 Pilihan sayuran beragam</li>
-<li>📦 Melayani rumah tangga dan usaha</li>
-<li>💰 Harga grosir tersedia</li>
-<li>📱 Pemesanan melalui WhatsApp</li>
-<li>🚚 Siap dikembangkan untuk distribusi</li>
-<li>💻 E-Commerce terus dikembangkan</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
 
+<!-- PRODUK -->
+<section id="produk">
+  <div class="container">
 
-<!-- CATALOG -->
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">Toko Online</div>
+        <h2 class="section-title">Pilih Sayuran Favorit Anda</h2>
+        <p class="section-desc">
+          Masukkan produk ke keranjang, atur jumlah, lalu kirim pesanan
+          langsung ke WhatsApp admin.
+        </p>
+      </div>
 
-<section class="catalog" id="produk">
+      <button class="btn btn-primary" onclick="openCart()">
+        🛒 Buka Keranjang
+      </button>
+    </div>
 
-<div class="container">
+    <div class="catalog-toolbar">
 
-<div class="section-head">
+      <div class="toolbar-top">
 
-<h2>Katalog Produk</h2>
+        <div class="search-box">
+          <span class="search-icon">🔎</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Cari sayuran, cabai, bawang..."
+            oninput="renderProducts()">
+        </div>
 
-<p>
-Pilih produk lalu masukkan ke keranjang.
-</p>
+        <select id="sortSelect"
+                class="sort-select"
+                onchange="renderProducts()">
+          <option value="default">Urutan Default</option>
+          <option value="nameAsc">Nama A-Z</option>
+          <option value="priceLow">Harga Terendah</option>
+          <option value="priceHigh">Harga Tertinggi</option>
+          <option value="stockHigh">Stok Terbanyak</option>
+        </select>
 
-</div>
+      </div>
 
+      <div class="category-scroll" id="categoryButtons"></div>
 
-<div class="toolbar">
+    </div>
 
-<div class="search">
+    <div class="catalog-meta">
+      <div id="catalogResult">Menampilkan produk</div>
+      <button class="clear-filter" onclick="resetCatalog()">
+        Reset Filter
+      </button>
+    </div>
 
-<input
-class="input"
-id="searchInput"
-placeholder="🔎 Cari sayuran..."
-oninput="renderProducts()">
+    <div class="product-grid" id="productGrid"></div>
 
-</div>
-
-
-<select
-id="sortSelect"
-onchange="renderProducts()">
-
-<option value="default">
-Urutan Default
-</option>
-
-<option value="low">
-Harga Terendah
-</option>
-
-<option value="high">
-Harga Tertinggi
-</option>
-
-<option value="name">
-Nama A-Z
-</option>
-
-</select>
-
-</div>
-
-
-<div
-class="category-list"
-id="categories">
-</div>
-
-
-<div
-class="product-grid"
-id="productGrid">
-</div>
-
-</div>
-
+  </div>
 </section>
 
-
-<!-- LOCATION -->
-
+<!-- LOKASI -->
 <section id="lokasi">
+  <div class="container">
 
-<div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">Lokasi & Kontak</div>
+        <h2 class="section-title">SUGIH SAWARGI</h2>
+        <p class="section-desc">
+          Cisarua, Bandung Barat, Jawa Barat.
+        </p>
+      </div>
+    </div>
 
-<div class="section-head">
+    <div class="location-grid">
 
-<h2>Lokasi Kami</h2>
+      <div class="contact-box">
 
-<p>
-SUGIH SAWARGI VEGETABLES — Cisarua, Bandung Barat
-</p>
+        <div class="contact-item">
+          <small>📍 Alamat</small>
+          <strong>Jl. Cisarua, Bandung Barat, Jawa Barat, Indonesia</strong>
+        </div>
 
-</div>
+        <div class="contact-item">
+          <small>📱 WhatsApp Admin</small>
+          <strong>0821-1547-7659</strong>
+        </div>
 
+        <div class="contact-item">
+          <small>🛒 Pemesanan</small>
+          <strong>Keranjang → Checkout → WhatsApp</strong>
+        </div>
 
-<div class="location-grid">
+        <a
+          href="https://wa.me/6282115477659?text=Halo%20Admin%20SUGIH%20SAWARGI%2C%20saya%20ingin%20bertanya."
+          target="_blank"
+          class="btn btn-primary">
+          💬 Hubungi Admin
+        </a>
 
-<div class="location-card">
+      </div>
 
-<h3>📍 Alamat</h3>
+      <div class="map-box">
+        <iframe
+          src="https://www.google.com/maps?q=Cisarua%20Bandung%20Barat&output=embed"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
 
-<br>
-
-<p>
-Jl. Cisarua, Bandung Barat,
-Jawa Barat, Indonesia
-</p>
-
-<br>
-
-<p>
-<strong>📱 WhatsApp Admin</strong>
-</p>
-
-<p>
-0821-1547-7659
-</p>
-
-<br>
-
-<a
-href="https://www.google.com/maps/search/?api=1&query=Jl.+Cisarua,+Bandung+Barat,+Jawa+Barat"
-target="_blank"
-rel="noopener"
-class="btn btn-primary">
-
-📍 Buka Google Maps
-
-</a>
-
-</div>
-
-
-<div class="location-card">
-
-<iframe
-class="map"
-src="https://www.google.com/maps?q=Cisarua,+Bandung+Barat,+Jawa+Barat&output=embed"
-loading="lazy"
-title="Lokasi SUGIH SAWARGI VEGETABLES">
-</iframe>
-
-</div>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
-
 
 <!-- ADMIN -->
+<section id="admin">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">Panel Lokal</div>
+        <h2 class="section-title">Admin Produk</h2>
+        <p class="section-desc">
+          Mode demo/local. Perubahan tersimpan di browser perangkat ini.
+        </p>
+      </div>
+    </div>
+
+    <div id="adminLogin" class="admin-login">
+
+      <div class="login-box">
+        <h3>🔐 Login Admin</h3>
+        <p style="color:var(--muted);font-size:13px;margin:5px 0 18px">
+          Masuk untuk mengelola katalog produk.
+        </p>
+
+        <div class="form-group">
+          <label>Password Admin</label>
+          <input
+            id="adminPassword"
+            type="password"
+            class="form-control"
+            placeholder="Masukkan password"
+            onkeydown="if(event.key==='Enter')loginAdmin()">
+        </div>
+
+        <button class="btn btn-primary" onclick="loginAdmin()">
+          Masuk Admin
+        </button>
+      </div>
+
+    </div>
+
+    <div id="adminPanel" class="admin-panel" style="display:none">
+
+      <div style="display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap">
+        <div>
+          <h3>📊 Dashboard Produk</h3>
+          <p style="color:var(--muted);font-size:12px">
+            Data lokal perangkat ini.
+          </p>
+        </div>
+
+        <button class="btn btn-secondary btn-small" onclick="logoutAdmin()">
+          Keluar
+        </button>
+      </div>
+
+      <div class="admin-stats">
+
+        <div class="admin-stat">
+          <strong id="adminTotalProducts">0</strong>
+          <span>Total Produk</span>
+        </div>
+
+        <div class="admin-stat">
+          <strong id="adminTotalStock">0</strong>
+          <span>Total Stok</span>
+        </div>
+
+        <div class="admin-stat">
+          <strong id="adminCartItems">0</strong>
+          <span>Item Keranjang</span>
+        </div>
+
+        <div class="admin-stat">
+          <strong id="adminCartValue">Rp0</strong>
+          <span>Nilai Keranjang</span>
+        </div>
+
+      </div>
+
+      <div class="admin-actions">
+        <button class="btn btn-primary btn-small" onclick="openProductForm()">
+          + Tambah Produk
+        </button>
+
+        <button class="btn btn-secondary btn-small" onclick="renderAdmin()">
+          🔄 Refresh
+        </button>
+
+        <button class="btn btn-danger btn-small" onclick="resetProducts()">
+          ♻️ Reset Produk Demo
+        </button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Produk</th>
+              <th>Kategori</th>
+              <th>Harga</th>
+              <th>Grosir</th>
+              <th>Stok</th>
+              <th>Unit</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
 
-<section class="admin" id="admin">
+          <tbody id="adminProductTable"></tbody>
+        </table>
+      </div>
 
-<div class="container">
+    </div>
 
-<div class="section-head">
-
-<h2>Admin SUGIH SAWARGI VEGETABLES</h2>
-
-<p>
-Kelola katalog produk.
-</p>
-
-</div>
-
-
-<div id="adminLogin" class="admin-login">
-
-<h3>🔐 Login Admin</h3>
-
-<br>
-
-<div class="form-group">
-
-<label>Password</label>
-
-<input
-class="input"
-type="password"
-id="adminPassword"
-placeholder="Masukkan password">
-
-</div>
-
-
-<button
-class="btn btn-primary"
-onclick="loginAdmin()">
-
-Masuk Dashboard
-
-</button>
-
-
-<p
-style="margin-top:12px;font-size:12px;color:#718073">
-
-Password demo:
-<strong>sugih123</strong>
-
-</p>
-
-</div>
-
-
-<div id="adminPanel" class="admin-panel">
-
-<div class="admin-top">
-
-<div>
-
-<h3>📊 Dashboard Produk</h3>
-
-<p
-style="color:#718073;font-size:13px">
-
-Mode database: LOCAL
-
-</p>
-
-</div>
-
-
-<div
-style="display:flex;gap:7px;flex-wrap:wrap">
-
-<button
-class="btn btn-primary btn-small"
-onclick="openProductModal()">
-
-➕ Tambah
-
-</button>
-
-<button
-class="btn btn-warning btn-small"
-onclick="resetProducts()">
-
-♻️ Reset
-
-</button>
-
-<button
-class="btn btn-danger btn-small"
-onclick="logoutAdmin()">
-
-Keluar
-
-</button>
-
-</div>
-
-</div>
-
-
-<div class="dashboard-grid">
-
-<div class="dashboard-card">
-
-<span>Total Produk</span>
-
-<strong id="adminProducts">
-0
-</strong>
-
-</div>
-
-
-<div class="dashboard-card">
-
-<span>Total Stok</span>
-
-<strong id="adminStock">
-0
-</strong>
-
-</div>
-
-
-<div class="dashboard-card">
-
-<span>Kategori</span>
-
-<strong id="adminCategories">
-0
-</strong>
-
-</div>
-
-
-<div class="dashboard-card">
-
-<span>Status Database</span>
-
-<strong>LOCAL</strong>
-
-</div>
-
-</div>
-
-
-<div style="overflow:auto">
-
-<table class="admin-table">
-
-<thead>
-
-<tr>
-
-<th>Produk</th>
-<th>Harga</th>
-<th>Grosir</th>
-<th>Stok</th>
-<th>Aksi</th>
-
-</tr>
-
-</thead>
-
-<tbody id="adminTable">
-</tbody>
-
-</table>
-
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
+</main>
 
-<!-- FOOTER -->
+<!-- CART OVERLAY -->
+<div class="overlay" id="cartOverlay" onclick="closeCart()"></div>
 
-<footer>
+<!-- CART DRAWER -->
+<aside class="cart-drawer" id="cartDrawer">
 
-<div class="container">
+  <div class="cart-head">
+    <div>
+      <h3>🛒 Keranjang</h3>
+      <small id="cartHeaderInfo">Belum ada produk</small>
+    </div>
 
-<div class="footer-grid">
+    <button class="modal-close" onclick="closeCart()">✕</button>
+  </div>
 
+  <div class="cart-body" id="cartBody"></div>
 
-<div>
-
-<div class="footer-brand">
-
-<img
-src="LOGO%20SUGIH%20SAWARGI.jpg"
-alt="Logo SUGIH SAWARGI">
-
-<h3>
-SUGIH SAWARGI
-</h3>
-
-</div>
-
-<p>
-SUGIH SAWARGI VEGETABLES —
-E-Commerce Distribusi Sayuran
-Segar & Berkualitas.
-</p>
-
-</div>
-
-
-<div>
-
-<h3>Layanan</h3>
-
-<ul>
-
-<li>Sayuran Segar</li>
-<li>Distribusi</li>
-<li>Pesanan Grosir</li>
-<li>Kebutuhan UMKM</li>
-
-</ul>
-
-</div>
-
-
-<div>
-
-<h3>Kontak</h3>
-
-<ul>
-
-<li>📍 Cisarua, Bandung Barat</li>
-
-<li>📱 0821-1547-7659</li>
-
-<li>💬 WhatsApp Admin</li>
-
-</ul>
-
-</div>
-
-
-</div>
-
-
-<div class="footer-bottom">
-
-© 2026 SUGIH SAWARGI VEGETABLES
-— E-Commerce Distribusi Sayuran
-
-</div>
-
-</div>
-
-</footer>
-
-
-<!-- CART -->
-
-<div
-class="overlay"
-id="overlay"
-onclick="closeCart()">
-</div>
-
-
-<aside
-class="cart-drawer"
-id="cartDrawer">
-
-
-<div class="cart-head">
-
-<h3>🛒 Keranjang</h3>
-
-<button
-class="close"
-onclick="closeCart()">
-
-✕
-
-</button>
-
-</div>
-
-
-<div
-class="cart-items"
-id="cartItems">
-</div>
-
-
-<div class="cart-total">
-
-<div class="total-row">
-
-<span>Total</span>
-
-<span id="cartTotal">
-Rp0
-</span>
-
-</div>
-
-
-<button
-class="btn btn-primary"
-style="width:100%"
-onclick="openCheckout()">
-
-💬 Checkout WhatsApp
-
-</button>
-
-</div>
+  <div class="cart-summary" id="cartSummary"></div>
 
 </aside>
 
+<!-- MOBILE CART -->
+<div class="mobile-cart-bar" id="mobileCartBar">
+  <div class="mobile-cart-inner">
+
+    <div class="mobile-cart-info">
+      <strong id="mobileCartTotal">Rp0</strong>
+      <span id="mobileCartItems">0 item</span>
+    </div>
+
+    <button class="btn btn-primary btn-small" onclick="openCart()">
+      Lihat Keranjang
+    </button>
+
+  </div>
+</div>
 
 <!-- CHECKOUT MODAL -->
+<div class="modal" id="checkoutModal">
 
-<div
-class="modal"
-id="checkoutModal">
+  <div class="modal-backdrop" onclick="closeCheckout()"></div>
 
-<div class="modal-box">
+  <div class="modal-card">
 
-<div class="modal-head">
+    <div class="modal-head">
+      <div>
+        <strong>🧾 Checkout Pesanan</strong>
+        <small style="display:block;color:var(--muted);font-size:11px">
+          Periksa pesanan sebelum dikirim.
+        </small>
+      </div>
 
-<h3>🛒 Checkout Pesanan</h3>
+      <button class="modal-close" onclick="closeCheckout()">✕</button>
+    </div>
 
-<button
-class="close"
-onclick="closeCheckout()">
+    <div class="modal-body">
 
-✕
+      <div class="checkout-summary" id="checkoutSummary"></div>
 
-</button>
+      <div class="form-group">
+        <label>Nama Pemesan *</label>
+        <input
+          id="checkoutName"
+          class="form-control"
+          placeholder="Nama Anda">
+      </div>
 
+      <div class="form-group">
+        <label>Nomor WhatsApp *</label>
+        <input
+          id="checkoutPhone"
+          type="tel"
+          class="form-control"
+          placeholder="Contoh: 08123456789">
+      </div>
+
+      <div class="form-group">
+        <label>Jenis Pembeli</label>
+        <select id="checkoutBuyer" class="form-control">
+          <option>Rumah Tangga</option>
+          <option>UMKM</option>
+          <option>Warung</option>
+          <option>Restoran</option>
+          <option>Distributor</option>
+          <option>Lainnya</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Alamat Pengiriman *</label>
+        <textarea
+          id="checkoutAddress"
+          class="form-control"
+          rows="3"
+          placeholder="Tuliskan alamat pengiriman"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Catatan</label>
+        <textarea
+          id="checkoutNotes"
+          class="form-control"
+          rows="3"
+          placeholder="Contoh: sayuran jangan terlalu matang"></textarea>
+      </div>
+
+      <div style="padding:11px;background:var(--primary-soft);border-radius:12px;font-size:11px;color:var(--primary-dark);margin-bottom:15px">
+        ℹ️ Harga grosir yang tercantum merupakan informasi harga grosir.
+        Ketentuan dan harga final akan dikonfirmasi admin melalui WhatsApp.
+      </div>
+
+      <button class="btn btn-primary" style="width:100%" onclick="checkoutWhatsApp()">
+        💬 Kirim Pesanan ke WhatsApp
+      </button>
+
+    </div>
+  </div>
 </div>
 
+<!-- PRODUCT FORM MODAL -->
+<div class="modal" id="productFormModal">
 
-<div class="form-grid">
+  <div class="modal-backdrop" onclick="closeProductForm()"></div>
 
-<div class="form-group">
+  <div class="modal-card">
 
-<label>Nama</label>
+    <div class="modal-head">
+      <strong id="productFormTitle">Tambah Produk</strong>
+      <button class="modal-close" onclick="closeProductForm()">✕</button>
+    </div>
 
-<input
-class="input"
-id="buyerName"
-placeholder="Nama lengkap">
+    <div class="modal-body">
 
+      <input type="hidden" id="editProductId">
+
+      <div class="form-group">
+        <label>Nama Produk</label>
+        <input id="formName" class="form-control" placeholder="Contoh: Bayam">
+      </div>
+
+      <div class="form-group">
+        <label>Kategori</label>
+        <input id="formCategory" class="form-control" placeholder="Contoh: Sayuran Hijau">
+      </div>
+
+      <div class="form-group">
+        <label>Harga Retail</label>
+        <input id="formPrice" type="number" class="form-control" min="0">
+      </div>
+
+      <div class="form-group">
+        <label>Harga Grosir</label>
+        <input id="formWholesale" type="number" class="form-control" min="0">
+      </div>
+
+      <div class="form-group">
+        <label>Stok</label>
+        <input id="formStock" type="number" class="form-control" min="0">
+      </div>
+
+      <div class="form-group">
+        <label>Minimal Pembelian</label>
+        <input id="formMin" type="number" class="form-control" min="1">
+      </div>
+
+      <div class="form-group">
+        <label>Satuan</label>
+        <input id="formUnit" class="form-control" placeholder="kg / ikat / pcs">
+      </div>
+
+      <div class="form-group">
+        <label>Emoji Produk</label>
+        <input id="formEmoji" class="form-control" placeholder="🥬">
+      </div>
+
+      <div class="form-group">
+        <label>Badge</label>
+        <input id="formBadge" class="form-control" placeholder="Segar">
+      </div>
+
+      <div class="form-group">
+        <label>Nama File Gambar (opsional)</label>
+        <input id="formImage" class="form-control" placeholder="TOMAT.jpg">
+      </div>
+
+      <button class="btn btn-primary" style="width:100%" onclick="saveProduct()">
+        💾 Simpan Produk
+      </button>
+
+    </div>
+  </div>
 </div>
 
+<!-- PRODUCT DETAIL MODAL -->
+<div class="modal" id="productDetailModal">
 
-<div class="form-group">
+  <div class="modal-backdrop" onclick="closeProductDetail()"></div>
 
-<label>WhatsApp</label>
+  <div class="modal-card">
 
-<input
-class="input"
-id="buyerPhone"
-placeholder="08xxxxxxxxxx">
+    <div class="modal-head">
+      <strong>Detail Produk</strong>
+      <button class="modal-close" onclick="closeProductDetail()">✕</button>
+    </div>
 
+    <div class="modal-body" id="productDetailBody"></div>
+
+  </div>
 </div>
 
-
-<div class="form-group">
-
-<label>Jenis Pembeli</label>
-
-<select id="buyerType">
-
-<option>Rumah Tangga</option>
-<option>UMKM</option>
-<option>Warung</option>
-<option>Restoran</option>
-<option>Katering</option>
-<option>Reseller</option>
-<option>Lainnya</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>Alamat</label>
-
-<input
-class="input"
-id="buyerAddress"
-placeholder="Alamat pengiriman">
-
-</div>
-
-
-<div class="form-group full">
-
-<label>Catatan</label>
-
-<textarea
-id="buyerNotes"
-rows="4"
-placeholder="Catatan pesanan...">
-</textarea>
-
-</div>
-
-</div>
-
-
-<br>
-
-<button
-class="btn btn-primary"
-style="width:100%"
-onclick="checkoutWhatsApp()">
-
-💬 Kirim Pesanan ke Admin
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- PRODUCT MODAL -->
-
-<div
-class="modal"
-id="productModal">
-
-<div class="modal-box">
-
-<div class="modal-head">
-
-<h3 id="productModalTitle">
-➕ Tambah Produk
-</h3>
-
-<button
-class="close"
-onclick="closeProductModal()">
-
-✕
-
-</button>
-
-</div>
-
-
-<div class="form-grid">
-
-
-<div class="form-group full">
-
-<label>Nama Produk</label>
-
-<input
-class="input"
-id="pName"
-placeholder="Contoh: Bayam">
-
-</div>
-
-
-<div class="form-group">
-
-<label>Kategori</label>
-
-<select id="pCategory">
-
-<option>Sayuran Hijau</option>
-<option>Umbi & Akar</option>
-<option>Sayuran Buah</option>
-<option>Cabai</option>
-<option>Bumbu</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>Harga Eceran</label>
-
-<input
-class="input"
-id="pPrice"
-type="number">
-
-</div>
-
-
-<div class="form-group">
-
-<label>Harga Grosir</label>
-
-<input
-class="input"
-id="pWholesale"
-type="number">
-
-</div>
-
-
-<div class="form-group">
-
-<label>Stok</label>
-
-<input
-class="input"
-id="pStock"
-type="number"
-value="100">
-
-</div>
-
-
-<div class="form-group">
-
-<label>Minimum Order</label>
-
-<input
-class="input"
-id="pMin"
-type="number"
-value="1">
-
-</div>
-
-
-<div class="form-group">
-
-<label>Satuan</label>
-
-<select id="pUnit">
-
-<option>kg</option>
-<option>ikat</option>
-<option>pcs</option>
-<option>karung</option>
-<option>box</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>Emoji</label>
-
-<input
-class="input"
-id="pEmoji"
-value="🥬">
-
-</div>
-
-
-<div class="form-group full">
-
-<label>Badge</label>
-
-<input
-class="input"
-id="pBadge"
-value="Segar">
-
-</div>
-
-
-</div>
-
-
-<br>
-
-<button
-class="btn btn-primary"
-style="width:100%"
-onclick="saveProduct()">
-
-💾 Simpan Produk
-
-</button>
-
-</div>
-
-</div>
-
-
-<div
-class="toast"
-id="toast">
-</div>
-
+<div class="toast-wrap" id="toastWrap"></div>
+
+<footer>
+  <div class="container footer-grid">
+
+    <div>
+      <div class="footer-title">SUGIH SAWARGI</div>
+      <div class="footer-text">
+        Distribusi & toko sayuran segar • Cisarua Bandung Barat
+      </div>
+    </div>
+
+    <div class="footer-copy">
+      © 2026 SUGIH SAWARGI<br>
+      Website toko online
+    </div>
+
+  </div>
+</footer>
 
 <script>
+/* =========================================================
+   SUGIH SAWARGI V6.3
+   TOKO & KERANJANG PRO
+   LOCAL / GRATIS
+   ========================================================= */
 
-/* =========================================
-   SUGIH SAWARGI VEGETABLES V6.2
-   LOCAL MODE
-========================================= */
+const VERSION = "V6.3";
 
-const WA_NUMBER="6282115477659";
+/*
+  KEY LAMA DIPERTAHANKAN
+  supaya data V6.2/V6.1 di browser tidak hilang.
+*/
+const PRODUCT_KEY = "sugihProductsV61";
+const CART_KEY = "sugihCartV61";
+const DARK_KEY = "sugihDarkV61";
+const ADMIN_KEY = "sugihAdminV61";
 
-const ADMIN_PASSWORD="sugih123";
+const ADMIN_PASSWORD = "sugih123";
+const ADMIN_WA = "6282115477659";
 
-const PRODUCT_KEY="sugihProductsV61";
+let products = [];
+let cart = [];
+let activeCategory = "Semua";
+let editingProductId = null;
 
-const CART_KEY="sugihCartV61";
+/* =========================================================
+   DATA PRODUK DEMO
+   ========================================================= */
 
-const DARK_KEY="sugihDarkV61";
-
-
-/* =========================
-   FOTO PRODUK ASLI
-========================= */
-
-const PRODUCT_IMAGES={
-
-  "Tomat":"TOMAT.jpg",
-
-  "Daun Bawang":"DAUN BAWANG.jpg",
-
-  "Jamur Hitam":"JAMUR HITAM.jpg",
-
-  "Labu Siam":"LABU SIAM.jpg"
-
-};
-
-
-/* =========================
-   DEMO PRODUCTS
-========================= */
-
-const demoProducts=[
-
-{
-id:1,
-name:"Bayam",
-category:"Sayuran Hijau",
-price:8000,
-wholesale:7000,
-stock:100,
-min:1,
-unit:"ikat",
-emoji:"🥬",
-badge:"Segar"
-},
-
-{
-id:2,
-name:"Sawi Hijau",
-category:"Sayuran Hijau",
-price:9000,
-wholesale:8000,
-stock:100,
-min:1,
-unit:"ikat",
-emoji:"🥬",
-badge:"Segar"
-},
-
-{
-id:3,
-name:"Kangkung",
-category:"Sayuran Hijau",
-price:7000,
-wholesale:6000,
-stock:100,
-min:1,
-unit:"ikat",
-emoji:"🌿",
-badge:"Favorit"
-},
-
-{
-id:4,
-name:"Kol",
-category:"Sayuran Hijau",
-price:11000,
-wholesale:9500,
-stock:80,
-min:1,
-unit:"kg",
-emoji:"🥬",
-badge:""
-},
-
-{
-id:5,
-name:"Brokoli",
-category:"Sayuran Hijau",
-price:22000,
-wholesale:19000,
-stock:60,
-min:1,
-unit:"kg",
-emoji:"🥦",
-badge:"Premium"
-},
-
-{
-id:6,
-name:"Wortel",
-category:"Umbi & Akar",
-price:15000,
-wholesale:13000,
-stock:90,
-min:1,
-unit:"kg",
-emoji:"🥕",
-badge:"Segar"
-},
-
-{
-id:7,
-name:"Kentang",
-category:"Umbi & Akar",
-price:18000,
-wholesale:16000,
-stock:100,
-min:1,
-unit:"kg",
-emoji:"🥔",
-badge:""
-},
-
-{
-id:8,
-name:"Lobak",
-category:"Umbi & Akar",
-price:13000,
-wholesale:11000,
-stock:70,
-min:1,
-unit:"kg",
-emoji:"🥕",
-badge:""
-},
-
-{
-id:9,
-name:"Tomat",
-category:"Sayuran Buah",
-price:12000,
-wholesale:10000,
-stock:100,
-min:1,
-unit:"kg",
-emoji:"🍅",
-badge:"Favorit",
-image:"TOMAT.jpg"
-},
-
-{
-id:10,
-name:"Timun",
-category:"Sayuran Buah",
-price:10000,
-wholesale:8500,
-stock:100,
-min:1,
-unit:"kg",
-emoji:"🥒",
-badge:"Segar"
-},
-
-{
-id:11,
-name:"Terong",
-category:"Sayuran Buah",
-price:11000,
-wholesale:9500,
-stock:80,
-min:1,
-unit:"kg",
-emoji:"🍆",
-badge:""
-},
-
-{
-id:12,
-name:"Jagung",
-category:"Sayuran Buah",
-price:14000,
-wholesale:12000,
-stock:90,
-min:1,
-unit:"kg",
-emoji:"🌽",
-badge:""
-},
-
-{
-id:13,
-name:"Cabai Merah",
-category:"Cabai",
-price:35000,
-wholesale:32000,
-stock:70,
-min:1,
-unit:"kg",
-emoji:"🌶️",
-badge:"Pedas"
-},
-
-{
-id:14,
-name:"Cabai Rawit",
-category:"Cabai",
-price:45000,
-wholesale:42000,
-stock:60,
-min:1,
-unit:"kg",
-emoji:"🌶️",
-badge:"Pedas"
-},
-
-{
-id:15,
-name:"Cabai Hijau",
-category:"Cabai",
-price:30000,
-wholesale:27000,
-stock:70,
-min:1,
-unit:"kg",
-emoji:"🌶️",
-badge:""
-},
-
-{
-id:16,
-name:"Bawang Merah",
-category:"Bumbu",
-price:32000,
-wholesale:29000,
-stock:80,
-min:1,
-unit:"kg",
-emoji:"🧅",
-badge:""
-},
-
-{
-id:17,
-name:"Bawang Putih",
-category:"Bumbu",
-price:36000,
-wholesale:33000,
-stock:80,
-min:1,
-unit:"kg",
-emoji:"🧄",
-badge:""
-},
-
-{
-id:18,
-name:"Daun Bawang",
-category:"Bumbu",
-price:12000,
-wholesale:10000,
-stock:80,
-min:1,
-unit:"ikat",
-emoji:"🌱",
-badge:"Segar",
-image:"DAUN BAWANG.jpg"
-},
-
-{
-id:19,
-name:"Seledri",
-category:"Bumbu",
-price:10000,
-wholesale:8500,
-stock:80,
-min:1,
-unit:"ikat",
-emoji:"🌿",
-badge:""
-},
-
-{
-id:20,
-name:"Jahe",
-category:"Bumbu",
-price:28000,
-wholesale:25000,
-stock:70,
-min:1,
-unit:"kg",
-emoji:"🫚",
-badge:""
-},
-
-{
-id:21,
-name:"Jamur Hitam",
-category:"Sayuran Hijau",
-price:18000,
-wholesale:16000,
-stock:50,
-min:1,
-unit:"kg",
-emoji:"🍄",
-badge:"Segar",
-image:"JAMUR HITAM.jpg"
-},
-
-{
-id:22,
-name:"Labu Siam",
-category:"Sayuran Buah",
-price:9000,
-wholesale:7500,
-stock:80,
-min:1,
-unit:"kg",
-emoji:"🥒",
-badge:"Segar",
-image:"LABU SIAM.jpg"
-}
-
+const defaultProducts = [
+  {
+    id:1,
+    name:"Bayam",
+    category:"Sayuran Hijau",
+    price:8000,
+    wholesale:7000,
+    stock:100,
+    min:1,
+    unit:"ikat",
+    emoji:"🥬",
+    badge:"Segar"
+  },
+  {
+    id:2,
+    name:"Sawi Hijau",
+    category:"Sayuran Hijau",
+    price:9000,
+    wholesale:8000,
+    stock:100,
+    min:1,
+    unit:"ikat",
+    emoji:"🥬",
+    badge:"Segar"
+  },
+  {
+    id:3,
+    name:"Kangkung",
+    category:"Sayuran Hijau",
+    price:7000,
+    wholesale:6000,
+    stock:100,
+    min:1,
+    unit:"ikat",
+    emoji:"🌿",
+    badge:"Favorit"
+  },
+  {
+    id:4,
+    name:"Kol",
+    category:"Sayuran Hijau",
+    price:11000,
+    wholesale:9500,
+    stock:80,
+    min:1,
+    unit:"kg",
+    emoji:"🥬",
+    badge:""
+  },
+  {
+    id:5,
+    name:"Brokoli",
+    category:"Sayuran Hijau",
+    price:22000,
+    wholesale:19000,
+    stock:60,
+    min:1,
+    unit:"kg",
+    emoji:"🥦",
+    badge:"Premium"
+  },
+  {
+    id:6,
+    name:"Wortel",
+    category:"Umbi & Akar",
+    price:15000,
+    wholesale:13000,
+    stock:90,
+    min:1,
+    unit:"kg",
+    emoji:"🥕",
+    badge:"Segar"
+  },
+  {
+    id:7,
+    name:"Kentang",
+    category:"Umbi & Akar",
+    price:18000,
+    wholesale:16000,
+    stock:100,
+    min:1,
+    unit:"kg",
+    emoji:"🥔",
+    badge:""
+  },
+  {
+    id:8,
+    name:"Lobak",
+    category:"Umbi & Akar",
+    price:13000,
+    wholesale:11000,
+    stock:70,
+    min:1,
+    unit:"kg",
+    emoji:"🥕",
+    badge:""
+  },
+  {
+    id:9,
+    name:"Tomat",
+    category:"Sayuran Buah",
+    price:12000,
+    wholesale:10000,
+    stock:100,
+    min:1,
+    unit:"kg",
+    emoji:"🍅",
+    badge:"Favorit",
+    image:"TOMAT.jpg"
+  },
+  {
+    id:10,
+    name:"Timun",
+    category:"Sayuran Buah",
+    price:10000,
+    wholesale:8500,
+    stock:100,
+    min:1,
+    unit:"kg",
+    emoji:"🥒",
+    badge:"Segar"
+  },
+  {
+    id:11,
+    name:"Terong",
+    category:"Sayuran Buah",
+    price:11000,
+    wholesale:9500,
+    stock:80,
+    min:1,
+    unit:"kg",
+    emoji:"🍆",
+    badge:""
+  },
+  {
+    id:12,
+    name:"Jagung",
+    category:"Sayuran Buah",
+    price:14000,
+    wholesale:12000,
+    stock:90,
+    min:1,
+    unit:"kg",
+    emoji:"🌽",
+    badge:""
+  },
+  {
+    id:13,
+    name:"Cabai Merah",
+    category:"Cabai",
+    price:35000,
+    wholesale:32000,
+    stock:70,
+    min:1,
+    unit:"kg",
+    emoji:"🌶️",
+    badge:"Pedas"
+  },
+  {
+    id:14,
+    name:"Cabai Rawit",
+    category:"Cabai",
+    price:45000,
+    wholesale:42000,
+    stock:60,
+    min:1,
+    unit:"kg",
+    emoji:"🌶️",
+    badge:"Pedas"
+  },
+  {
+    id:15,
+    name:"Cabai Hijau",
+    category:"Cabai",
+    price:30000,
+    wholesale:27000,
+    stock:70,
+    min:1,
+    unit:"kg",
+    emoji:"🌶️",
+    badge:""
+  },
+  {
+    id:16,
+    name:"Bawang Merah",
+    category:"Bumbu",
+    price:32000,
+    wholesale:29000,
+    stock:80,
+    min:1,
+    unit:"kg",
+    emoji:"🧅",
+    badge:""
+  },
+  {
+    id:17,
+    name:"Bawang Putih",
+    category:"Bumbu",
+    price:36000,
+    wholesale:33000,
+    stock:80,
+    min:1,
+    unit:"kg",
+    emoji:"🧄",
+    badge:""
+  },
+  {
+    id:18,
+    name:"Daun Bawang",
+    category:"Bumbu",
+    price:12000,
+    wholesale:10000,
+    stock:80,
+    min:1,
+    unit:"ikat",
+    emoji:"🌱",
+    badge:"Segar",
+    image:"DAUN BAWANG.jpg"
+  },
+  {
+    id:19,
+    name:"Seledri",
+    category:"Bumbu",
+    price:10000,
+    wholesale:8500,
+    stock:80,
+    min:1,
+    unit:"ikat",
+    emoji:"🌿",
+    badge:""
+  },
+  {
+    id:20,
+    name:"Jahe",
+    category:"Bumbu",
+    price:28000,
+    wholesale:25000,
+    stock:70,
+    min:1,
+    unit:"kg",
+    emoji:"🫚",
+    badge:""
+  },
+  {
+    id:21,
+    name:"Jamur Hitam",
+    category:"Sayuran Hijau",
+    price:18000,
+    wholesale:16000,
+    stock:50,
+    min:1,
+    unit:"kg",
+    emoji:"🍄",
+    badge:"Segar",
+    image:"JAMUR HITAM.jpg"
+  },
+  {
+    id:22,
+    name:"Labu Siam",
+    category:"Sayuran Buah",
+    price:9000,
+    wholesale:7500,
+    stock:80,
+    min:1,
+    unit:"kg",
+    emoji:"🥒",
+    badge:"Segar",
+    image:"LABU SIAM.jpg"
+  }
 ];
 
+/* =========================================================
+   UTILITAS
+   ========================================================= */
 
-let products=loadProducts();
-
-let cart=loadCart();
-
-let activeCategory="Semua";
-
-let editingId=null;
-
-
-/* =========================
-   LOAD PRODUCTS
-========================= */
-
-function loadProducts(){
-
-  try{
-
-    const data=localStorage.getItem(PRODUCT_KEY);
-
-    let list=data
-      ?JSON.parse(data)
-      :JSON.parse(JSON.stringify(demoProducts));
-
-    list=list.map(function(product){
-
-      const image=
-        product.image ||
-        PRODUCT_IMAGES[product.name] ||
-        "";
-
-      return {
-        ...product,
-        image:image
-      };
-
-    });
-
-    return list;
-
-  }catch(e){
-
-    return JSON.parse(
-      JSON.stringify(demoProducts)
-    );
-
-  }
-
+function rupiah(value){
+  return new Intl.NumberFormat("id-ID",{
+    style:"currency",
+    currency:"IDR",
+    maximumFractionDigits:0
+  }).format(Number(value)||0);
 }
-
-
-/* =========================
-   CART
-========================= */
-
-function loadCart(){
-
-  try{
-
-    const data=localStorage.getItem(CART_KEY);
-
-    return data
-      ?JSON.parse(data)
-      :[];
-
-  }catch(e){
-
-    return [];
-
-  }
-
-}
-
-
-function saveProducts(){
-
-  try{
-
-    localStorage.setItem(
-      PRODUCT_KEY,
-      JSON.stringify(products)
-    );
-
-  }catch(e){}
-
-}
-
-
-function saveCart(){
-
-  try{
-
-    localStorage.setItem(
-      CART_KEY,
-      JSON.stringify(cart)
-    );
-
-  }catch(e){}
-
-}
-
-
-/* =========================
-   UTILITIES
-========================= */
-
-function rupiah(number){
-
-  return new Intl.NumberFormat(
-    "id-ID",
-    {
-      style:"currency",
-      currency:"IDR",
-      maximumFractionDigits:0
-    }
-  ).format(Number(number)||0);
-
-}
-
 
 function escapeHTML(value){
-
-  return String(value)
+  return String(value ?? "")
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
-
 }
-
 
 function escapeAttribute(value){
-
   return escapeHTML(value);
-
 }
 
+function saveProducts(){
+  localStorage.setItem(PRODUCT_KEY,JSON.stringify(products));
+}
 
-function toast(message){
+function saveCart(){
+  localStorage.setItem(CART_KEY,JSON.stringify(cart));
+}
 
-  const el=document.getElementById("toast");
+function getProduct(id){
+  return products.find(p => Number(p.id) === Number(id));
+}
 
+function totalCartItems(){
+  return cart.reduce((sum,item)=>sum + Number(item.qty||0),0);
+}
+
+function totalCartValue(){
+  return cart.reduce((sum,item)=>{
+    const product=getProduct(item.id);
+    return sum + (product ? product.price * item.qty : 0);
+  },0);
+}
+
+function toast(message,type="success"){
+  const wrap=document.getElementById("toastWrap");
+
+  const el=document.createElement("div");
+  el.className="toast "+type;
   el.textContent=message;
 
-  el.classList.add("show");
+  wrap.appendChild(el);
 
-  setTimeout(function(){
+  setTimeout(()=>{
+    el.style.opacity="0";
+    el.style.transform="translateX(30px)";
 
-    el.classList.remove("show");
-
-  },2200);
-
+    setTimeout(()=>el.remove(),250);
+  },2500);
 }
 
+/* =========================================================
+   INIT
+   ========================================================= */
 
-/* =========================
-   DARK MODE
-========================= */
+document.addEventListener("DOMContentLoaded",()=>{
 
-function toggleDark(){
+  loadProducts();
+  loadCart();
+  loadDark();
 
-  document.body.classList.toggle("dark");
+  renderCategories();
+  renderProducts();
+  renderCart();
+  renderAdmin();
 
-  const dark=
-    document.body.classList.contains("dark");
+  if(sessionStorage.getItem(ADMIN_KEY)==="true"){
+    showAdminPanel();
+  }
+
+  updateAllCounters();
+
+});
+
+/* =========================================================
+   PRODUCTS
+   ========================================================= */
+
+function loadProducts(){
 
   try{
+    const saved=localStorage.getItem(PRODUCT_KEY);
 
-    localStorage.setItem(
-      DARK_KEY,
-      dark?"1":"0"
-    );
+    if(saved){
+      const parsed=JSON.parse(saved);
 
-  }catch(e){}
+      if(Array.isArray(parsed) && parsed.length){
+        products=parsed;
+      }else{
+        products=JSON.parse(JSON.stringify(defaultProducts));
+        saveProducts();
+      }
+    }else{
+      products=JSON.parse(JSON.stringify(defaultProducts));
+      saveProducts();
+    }
 
-  document.getElementById(
-    "darkBtn"
-  ).textContent=dark?"☀️":"🌙";
+  }catch(error){
+
+    console.error(error);
+
+    products=JSON.parse(JSON.stringify(defaultProducts));
+    saveProducts();
+  }
 
 }
 
+function loadCart(){
 
-/* =========================
-   MOBILE MENU
-========================= */
+  try{
+    const saved=localStorage.getItem(CART_KEY);
 
-function toggleMenu(){
+    if(saved){
+      const parsed=JSON.parse(saved);
+      cart=Array.isArray(parsed) ? parsed : [];
+    }else{
+      cart=[];
+    }
 
-  document
-    .getElementById("navLinks")
-    .classList.toggle("show");
+    validateCart();
+
+  }catch(error){
+    console.error(error);
+    cart=[];
+  }
 
 }
 
+function validateCart(){
 
-/* =========================
-   CATEGORIES
-========================= */
+  let changed=false;
+
+  cart=cart.filter(item=>{
+
+    const product=getProduct(item.id);
+
+    if(!product){
+      changed=true;
+      return false;
+    }
+
+    let qty=Number(item.qty)||0;
+
+    if(product.stock<=0){
+      changed=true;
+      return false;
+    }
+
+    const min=Math.max(1,Number(product.min)||1);
+
+    if(qty<min){
+      qty=min;
+      changed=true;
+    }
+
+    if(qty>product.stock){
+      qty=product.stock;
+      changed=true;
+    }
+
+    item.qty=qty;
+
+    return qty>0;
+  });
+
+  if(changed){
+    saveCart();
+  }
+
+}
 
 function renderCategories(){
 
-  const box=
-    document.getElementById("categories");
+  const box=document.getElementById("categoryButtons");
 
   const categories=[
     "Semua",
-    ...new Set(
-      products.map(function(p){
-        return p.category;
-      })
-    )
+    ...new Set(products.map(p=>p.category).filter(Boolean))
   ];
 
-  box.innerHTML=
-    categories.map(function(category){
-
-      return `
-      <button
-      class="category-btn ${
-        activeCategory===category
-        ?"active":""
-      }"
-      onclick="setCategory('${escapeHTML(category).replace(/'/g,"\\'")}')">
-
+  box.innerHTML=categories.map(category=>`
+    <button
+      class="category-btn ${activeCategory===category?"active":""}"
+      onclick="setCategory('${escapeAttribute(category)}')">
       ${escapeHTML(category)}
-
-      </button>
-      `;
-
-    }).join("");
-
+    </button>
+  `).join("");
 }
-
 
 function setCategory(category){
 
   activeCategory=category;
 
   renderCategories();
-
   renderProducts();
-
 }
 
+function resetCatalog(){
 
-/* =========================
-   PRODUCTS
-========================= */
+  activeCategory="Semua";
+
+  document.getElementById("searchInput").value="";
+  document.getElementById("sortSelect").value="default";
+
+  renderCategories();
+  renderProducts();
+}
+
+function getFilteredProducts(){
+
+  const search=document
+    .getElementById("searchInput")
+    .value
+    .trim()
+    .toLowerCase();
+
+  const sort=document.getElementById("sortSelect").value;
+
+  let list=products.filter(product=>{
+
+    const matchesCategory=
+      activeCategory==="Semua" ||
+      product.category===activeCategory;
+
+    const text=[
+      product.name,
+      product.category,
+      product.badge
+    ].join(" ").toLowerCase();
+
+    const matchesSearch=
+      !search || text.includes(search);
+
+    return matchesCategory && matchesSearch;
+  });
+
+  if(sort==="nameAsc"){
+    list.sort((a,b)=>a.name.localeCompare(b.name,"id"));
+  }
+
+  if(sort==="priceLow"){
+    list.sort((a,b)=>a.price-b.price);
+  }
+
+  if(sort==="priceHigh"){
+    list.sort((a,b)=>b.price-a.price);
+  }
+
+  if(sort==="stockHigh"){
+    list.sort((a,b)=>b.stock-a.stock);
+  }
+
+  return list;
+}
+
+function stockInfo(stock){
+
+  if(stock<=0){
+    return {
+      text:"Habis",
+      className:"stock-empty"
+    };
+  }
+
+  if(stock<=10){
+    return {
+      text:"Stok Terbatas",
+      className:"stock-low"
+    };
+  }
+
+  return {
+    text:"Tersedia",
+    className:"stock-good"
+  };
+}
 
 function renderProducts(){
 
-  const grid=
-    document.getElementById(
-      "productGrid"
-    );
+  const grid=document.getElementById("productGrid");
+  const list=getFilteredProducts();
 
-  const search=
-    document.getElementById(
-      "searchInput"
-    )
-    .value
-    .toLowerCase()
-    .trim();
+  document.getElementById("catalogResult").innerHTML=
+    `Menampilkan <strong>${list.length}</strong> dari ${products.length} produk`+
+    (activeCategory!=="Semua"
+      ? ` • ${escapeHTML(activeCategory)}`
+      :"");
 
-  const sort=
-    document.getElementById(
-      "sortSelect"
-    ).value;
+  document.getElementById("statProducts").textContent=products.length;
+  document.getElementById("heroProductCount").textContent=products.length;
 
-
-  let data=
-    products.filter(function(product){
-
-      const categoryOK=
-        activeCategory==="Semua" ||
-        product.category===activeCategory;
-
-      const searchOK=
-        String(product.name)
-          .toLowerCase()
-          .includes(search) ||
-
-        String(product.category)
-          .toLowerCase()
-          .includes(search);
-
-      return categoryOK && searchOK;
-
-    });
-
-
-  if(sort==="low"){
-
-    data.sort(function(a,b){
-      return a.price-b.price;
-    });
-
-  }
-
-
-  if(sort==="high"){
-
-    data.sort(function(a,b){
-      return b.price-a.price;
-    });
-
-  }
-
-
-  if(sort==="name"){
-
-    data.sort(function(a,b){
-
-      return a.name.localeCompare(
-        b.name,
-        "id"
-      );
-
-    });
-
-  }
-
-
-  if(!data.length){
+  if(!list.length){
 
     grid.innerHTML=`
-
-      <div class="empty">
-
-        <h3>😔 Produk tidak ditemukan</h3>
-
-        <p>
-        Coba pencarian atau kategori lain.
+      <div class="empty-state">
+        <div class="empty-icon">🔎</div>
+        <h3>Produk tidak ditemukan</h3>
+        <p style="color:var(--muted);margin:5px 0 17px">
+          Coba kata pencarian atau kategori lainnya.
         </p>
-
+        <button class="btn btn-primary" onclick="resetCatalog()">
+          Tampilkan Semua Produk
+        </button>
       </div>
-
     `;
 
     return;
-
   }
 
+  grid.innerHTML=list.map(product=>{
 
-  grid.innerHTML=
-    data.map(function(product){
+    const stock=stockInfo(Number(product.stock)||0);
+    const min=Math.max(1,Number(product.min)||1);
+    const disabled=Number(product.stock)<=0;
 
-      const image=
-        product.image ||
-        PRODUCT_IMAGES[product.name] ||
-        "";
-
-      const imageHTML=image
-        ?`
-          <img
-          src="${escapeAttribute(image)}"
+    const imageHTML=product.image
+      ? `
+        <img
+          src="${escapeAttribute(product.image)}"
           alt="${escapeAttribute(product.name)}"
-          loading="lazy"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
-          <span style="display:none">
-            ${escapeHTML(product.emoji||"🥬")}
-          </span>
-        `
-        :`
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="product-emoji" style="display:none">
           ${escapeHTML(product.emoji||"🥬")}
-        `;
+        </span>
+      `
+      : `
+        <span class="product-emoji">
+          ${escapeHTML(product.emoji||"🥬")}
+        </span>
+      `;
 
+    return `
+      <article class="product-card">
 
-      return `
-
-      <div class="product">
-
-        <div class="product-image">
-
-          ${
-            product.badge
-            ?
-            `<span class="product-badge">
-              ${escapeHTML(product.badge)}
-            </span>`
-            :""
-          }
+        <div
+          class="product-visual"
+          onclick="openProductDetail(${Number(product.id)})"
+          style="cursor:pointer">
 
           ${imageHTML}
 
-        </div>
+          ${
+            product.badge
+            ? `<span class="product-badge">${escapeHTML(product.badge)}</span>`
+            :""
+          }
 
+          <span class="stock-pill ${stock.className}">
+            ${stock.text}
+          </span>
+
+        </div>
 
         <div class="product-body">
 
-          <h3>
+          <div class="product-category">
+            ${escapeHTML(product.category||"Produk")}
+          </div>
+
+          <h3
+            class="product-name"
+            onclick="openProductDetail(${Number(product.id)})"
+            style="cursor:pointer">
             ${escapeHTML(product.name)}
           </h3>
 
-          <div class="product-category">
+          <div class="price-row">
+            <div class="price">
+              ${rupiah(product.price)}
+            </div>
 
-            ${escapeHTML(product.category)}
-            • /
-            ${escapeHTML(product.unit)}
-
+            <div class="unit">
+              / ${escapeHTML(product.unit||"unit")}
+            </div>
           </div>
-
-
-          <div class="price">
-
-            ${rupiah(product.price)}
-
-          </div>
-
 
           <div class="wholesale">
-
-            Grosir:
-            ${rupiah(product.wholesale)}
-
+            🏷️ Grosir: <strong>${rupiah(product.wholesale)}</strong>
           </div>
 
-
-          <div
-          style="font-size:11px;color:#718073;margin-bottom:9px">
-
-            Stok:
-            ${product.stock}
-            ${escapeHTML(product.unit)}
-
+          <div class="stock-text">
+            Stok: <strong>${Number(product.stock)}</strong>
+            ${escapeHTML(product.unit||"unit")}
+            • Min. ${min}
           </div>
 
+          <div class="product-actions">
 
-          <div class="product-footer">
-
-            <div class="quantity">
+            <div class="qty-control">
 
               <button
-              onclick="changeProductQty(${product.id},-1)">
-              −
+                onclick="changeProductQty(${Number(product.id)},-1)"
+                ${disabled?"disabled":""}>
+                −
               </button>
 
-              <span id="qty-${product.id}">
-                ${product.min||1}
+              <span id="qty-${Number(product.id)}">
+                ${disabled ? 0 : min}
               </span>
 
               <button
-              onclick="changeProductQty(${product.id},1)">
-              +
+                onclick="changeProductQty(${Number(product.id)},1)"
+                ${disabled?"disabled":""}>
+                +
               </button>
 
             </div>
 
-
             <button
-            class="btn btn-primary btn-small"
-            style="flex:1"
-            onclick="addToCart(${product.id})">
-
-              + Keranjang
-
+              class="add-btn"
+              onclick="addToCart(${Number(product.id)})"
+              ${disabled?"disabled":""}>
+              ${disabled?"Stok Habis":"+ Keranjang"}
             </button>
 
           </div>
 
         </div>
 
-      </div>
-
-      `;
-
-    }).join("");
-
+      </article>
+    `;
+  }).join("");
 }
 
+function changeProductQty(id,direction){
 
-/* =========================
-   PRODUCT QUANTITY
-========================= */
+  const product=getProduct(id);
 
-function changeProductQty(id,change){
+  if(!product || product.stock<=0) return;
 
-  const el=
-    document.getElementById(
-      "qty-"+id
-    );
+  const min=Math.max(1,Number(product.min)||1);
+  const el=document.getElementById(`qty-${id}`);
 
-  const product=
-    products.find(function(p){
-      return p.id===id;
-    });
+  if(!el) return;
 
+  let qty=Number(el.textContent)||min;
 
-  if(!el || !product){
-    return;
-  }
+  qty+=direction;
 
+  qty=Math.max(min,qty);
+  qty=Math.min(Number(product.stock),qty);
 
-  let value=
-    parseInt(el.textContent)||1;
-
-
-  value+=change;
-
-
-  if(value<product.min){
-    value=product.min;
-  }
-
-
-  if(value>product.stock){
-    value=product.stock;
-  }
-
-
-  el.textContent=value;
-
+  el.textContent=qty;
 }
-
-
-/* =========================
-   CART
-========================= */
 
 function addToCart(id){
 
-  const product=
-    products.find(function(p){
-      return p.id===id;
-    });
-
+  const product=getProduct(id);
 
   if(!product){
+    toast("Produk tidak ditemukan","error");
     return;
   }
-
 
   if(product.stock<=0){
-
-    toast("Stok produk habis.");
-
+    toast("Produk sedang habis","error");
     return;
-
   }
 
+  const min=Math.max(1,Number(product.min)||1);
 
-  const qtyEl=
-    document.getElementById(
-      "qty-"+id
-    );
+  const qtyElement=document.getElementById(`qty-${id}`);
 
+  let qty=Number(qtyElement?.textContent)||min;
 
-  let qty=
-    parseInt(
-      qtyEl
-      ?qtyEl.textContent
-      :"1"
-    )||1;
+  qty=Math.max(min,qty);
+  qty=Math.min(product.stock,qty);
 
+  const existing=cart.find(item=>Number(item.id)===Number(id));
 
-  let item=
-    cart.find(function(i){
-      return i.id===id;
-    });
+  if(existing){
 
+    const newQty=existing.qty+qty;
 
-  if(item){
-
-    item.qty+=qty;
-
-
-    if(item.qty>product.stock){
-
-      item.qty=product.stock;
-
+    if(newQty>product.stock){
+      existing.qty=product.stock;
+      toast("Jumlah disesuaikan dengan stok");
+    }else{
+      existing.qty=newQty;
+      toast(`${product.name} ditambahkan lagi`);
     }
 
   }else{
 
     cart.push({
-      id:id,
+      id:Number(id),
       qty:qty
     });
 
+    toast(`${product.name} masuk keranjang`);
   }
 
-
   saveCart();
-
   renderCart();
+  updateAllCounters();
 
-  toast(
-    (product.emoji||"🥬")
-    +" "
-    +product.name
-    +" masuk keranjang"
-  );
+  if(qtyElement){
+    qtyElement.textContent=min;
+  }
 
 }
 
+/* =========================================================
+   CART
+   ========================================================= */
+
+function openCart(){
+
+  validateCart();
+
+  document.getElementById("cartDrawer").classList.add("show");
+  document.getElementById("cartOverlay").classList.add("show");
+
+  renderCart();
+}
+
+function closeCart(){
+
+  document.getElementById("cartDrawer").classList.remove("show");
+  document.getElementById("cartOverlay").classList.remove("show");
+}
+
+function changeCartQty(id,direction){
+
+  const item=cart.find(i=>Number(i.id)===Number(id));
+  const product=getProduct(id);
+
+  if(!item || !product) return;
+
+  const min=Math.max(1,Number(product.min)||1);
+
+  let qty=Number(item.qty)||min;
+
+  qty+=direction;
+
+  if(qty<min){
+    removeFromCart(id);
+    return;
+  }
+
+  if(qty>product.stock){
+    qty=product.stock;
+    toast("Jumlah tidak bisa melebihi stok","error");
+  }
+
+  if(qty<=0){
+    removeFromCart(id);
+    return;
+  }
+
+  item.qty=qty;
+
+  saveCart();
+  renderCart();
+  updateAllCounters();
+}
 
 function removeFromCart(id){
 
-  cart=
-    cart.filter(function(item){
-      return item.id!==id;
-    });
+  const product=getProduct(id);
 
+  cart=cart.filter(item=>Number(item.id)!==Number(id));
 
   saveCart();
-
   renderCart();
+  updateAllCounters();
 
+  if(product){
+    toast(`${product.name} dihapus dari keranjang`);
+  }
 }
 
+function clearCart(){
 
-function changeCartQty(id,change){
-
-  const item=
-    cart.find(function(i){
-      return i.id===id;
-    });
-
-  const product=
-    products.find(function(p){
-      return p.id===id;
-    });
-
-
-  if(!item || !product){
+  if(!cart.length){
+    toast("Keranjang sudah kosong");
     return;
   }
 
+  const ok=confirm("Kosongkan semua isi keranjang?");
 
-  item.qty+=change;
+  if(!ok) return;
 
-
-  if(item.qty<1){
-    item.qty=1;
-  }
-
-
-  if(item.qty>product.stock){
-
-    item.qty=product.stock;
-
-  }
-
+  cart=[];
 
   saveCart();
-
   renderCart();
+  updateAllCounters();
 
+  toast("Keranjang dikosongkan");
 }
-
-
-function getCartTotal(){
-
-  return cart.reduce(
-    function(total,item){
-
-      const product=
-        products.find(function(p){
-          return p.id===item.id;
-        });
-
-
-      if(!product){
-        return total;
-      }
-
-
-      return total+
-        (
-          product.price*
-          item.qty
-        );
-
-    },
-    0
-  );
-
-}
-
 
 function renderCart(){
 
-  const box=
-    document.getElementById(
-      "cartItems"
-    );
+  validateCart();
 
+  const body=document.getElementById("cartBody");
+  const summary=document.getElementById("cartSummary");
 
-  let totalQty=0;
+  const itemCount=totalCartItems();
+  const total=totalCartValue();
 
-
-  cart.forEach(function(item){
-
-    totalQty+=
-      Number(item.qty)||0;
-
-  });
-
-
-  document.getElementById(
-    "cartCount"
-  ).textContent=totalQty;
-
+  document.getElementById("cartHeaderInfo").textContent=
+    itemCount
+      ? `${itemCount} item dalam keranjang`
+      : "Belum ada produk";
 
   if(!cart.length){
 
-    box.innerHTML=`
-
-      <div
-      style="text-align:center;padding:45px 10px;color:#718073">
-
-        <div style="font-size:50px">
-          🛒
+    body.innerHTML=`
+      <div class="empty-cart">
+        <div>
+          <div class="empty-cart-icon">🛒</div>
+          <h3>Keranjang masih kosong</h3>
+          <p style="margin:5px 0 17px">
+            Yuk pilih sayuran yang Anda butuhkan.
+          </p>
+          <button class="btn btn-primary" onclick="closeCart();location.hash='produk'">
+            Belanja Sekarang
+          </button>
         </div>
-
-        <h3>Keranjang kosong</h3>
-
-        <p>
-        Silakan pilih produk terlebih dahulu.
-        </p>
-
       </div>
-
     `;
 
-
-    document.getElementById(
-      "cartTotal"
-    ).textContent="Rp0";
-
+    summary.innerHTML="";
     return;
-
   }
 
+  body.innerHTML=cart.map(item=>{
 
-  box.innerHTML=
-    cart.map(function(item){
+    const product=getProduct(item.id);
 
-      const product=
-        products.find(function(p){
-          return p.id===item.id;
-        });
+    if(!product) return "";
 
-
-      if(!product){
-        return "";
-      }
-
-
-      const image=
-        product.image ||
-        PRODUCT_IMAGES[product.name] ||
-        "";
-
-
-      const imageHTML=image
-        ?
-        `
-        <div class="cart-image">
-          <img
-          src="${escapeAttribute(image)}"
-          alt="${escapeAttribute(product.name)}">
-        </div>
-        `
-        :
-        `
-        <div class="cart-emoji">
+    const imageHTML=product.image
+      ? `
+        <img
+          src="${escapeAttribute(product.image)}"
+          alt="${escapeAttribute(product.name)}"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span style="display:none">
           ${escapeHTML(product.emoji||"🥬")}
-        </div>
-        `;
+        </span>
+      `
+      : `
+        ${escapeHTML(product.emoji||"🥬")}
+      `;
 
-
-      return `
-
+    return `
       <div class="cart-item">
 
-        ${imageHTML}
+        <div class="cart-thumb">
+          ${imageHTML}
+        </div>
 
         <div>
 
-          <strong>
+          <div class="cart-item-name">
             ${escapeHTML(product.name)}
-          </strong>
+          </div>
 
-          <small>
-            ${item.qty}
-            ${escapeHTML(product.unit)}
-            ×
-            ${rupiah(product.price)}
-          </small>
+          <div class="cart-item-price">
+            ${rupiah(product.price)} / ${escapeHTML(product.unit)}
+          </div>
 
-          <div style="margin-top:5px">
+          <div class="cart-item-controls">
 
-            <button
-            onclick="changeCartQty(${product.id},-1)"
-            style="border:0;background:#edf6ed;width:28px;height:28px;border-radius:7px">
-            −
+            <button onclick="changeCartQty(${Number(product.id)},-1)">
+              −
             </button>
 
-            <span style="padding:0 8px">
-              ${item.qty}
-            </span>
+            <span>${item.qty}</span>
+
+            <button onclick="changeCartQty(${Number(product.id)},1)">
+              +
+            </button>
 
             <button
-            onclick="changeCartQty(${product.id},1)"
-            style="border:0;background:#edf6ed;width:28px;height:28px;border-radius:7px">
-            +
+              class="cart-remove"
+              onclick="removeFromCart(${Number(product.id)})"
+              title="Hapus">
+              🗑
             </button>
 
           </div>
 
         </div>
 
+        <strong style="font-size:12px">
+          ${rupiah(product.price*item.qty)}
+        </strong>
 
-        <div style="text-align:right">
+      </div>
+    `;
+  }).join("");
 
-          <strong>
-            ${rupiah(product.price*item.qty)}
-          </strong>
+  summary.innerHTML=`
+    <div class="summary-row">
+      <span>Total produk</span>
+      <strong>${cart.length}</strong>
+    </div>
 
-          <br>
+    <div class="summary-row">
+      <span>Total item</span>
+      <strong>${itemCount}</strong>
+    </div>
 
-          <button
-          onclick="removeFromCart(${product.id})"
-          style="border:0;background:none;color:#d33;font-size:12px">
+    <div class="summary-row">
+      <span>Subtotal</span>
+      <strong>${rupiah(total)}</strong>
+    </div>
 
-            Hapus
+    <div class="summary-total">
+      <span>Total</span>
+      <strong>${rupiah(total)}</strong>
+    </div>
 
-          </button>
+    <div class="cart-note">
+      💡 Harga yang tampil adalah harga retail.
+      Harga grosir akan dikonfirmasi admin sesuai jumlah pesanan.
+    </div>
+
+    <div class="cart-buttons">
+
+      <button
+        class="btn btn-secondary"
+        onclick="closeCart();location.hash='produk'">
+        ← Lanjut Belanja
+      </button>
+
+      <button
+        class="btn btn-secondary"
+        onclick="clearCart()">
+        🗑 Kosongkan
+      </button>
+
+      <button
+        class="btn btn-primary checkout-full"
+        onclick="openCheckout()">
+        🧾 Checkout Sekarang
+      </button>
+
+    </div>
+  `;
+}
+
+function updateAllCounters(){
+
+  const count=totalCartItems();
+  const total=totalCartValue();
+
+  document.getElementById("headerCartCount").textContent=count;
+
+  document.getElementById("mobileCartTotal").textContent=
+    rupiah(total);
+
+  document.getElementById("mobileCartItems").textContent=
+    `${count} item`;
+
+  document.getElementById("adminCartItems").textContent=count;
+
+  document.getElementById("adminCartValue").textContent=
+    rupiah(total);
+}
+
+/* =========================================================
+   CHECKOUT
+   ========================================================= */
+
+function openCheckout(){
+
+  validateCart();
+
+  if(!cart.length){
+    toast("Keranjang masih kosong","error");
+    return;
+  }
+
+  /*
+    V6.3:
+    Drawer ditutup dahulu agar checkout tidak bertumpuk.
+  */
+  closeCart();
+
+  renderCheckoutSummary();
+
+  document.getElementById("checkoutModal").classList.add("show");
+}
+
+function closeCheckout(){
+  document.getElementById("checkoutModal").classList.remove("show");
+}
+
+function renderCheckoutSummary(){
+
+  const box=document.getElementById("checkoutSummary");
+
+  const lines=cart.map(item=>{
+
+    const product=getProduct(item.id);
+
+    if(!product) return "";
+
+    return `
+      <div class="checkout-line">
+        <span>
+          ${escapeHTML(product.name)}
+          × ${item.qty}
+        </span>
+        <strong>${rupiah(product.price*item.qty)}</strong>
+      </div>
+    `;
+  }).join("");
+
+  box.innerHTML=`
+    <div class="checkout-summary-title">
+      Ringkasan Pesanan
+    </div>
+
+    ${lines}
+
+    <div class="checkout-total">
+      <span>Total</span>
+      <strong>${rupiah(totalCartValue())}</strong>
+    </div>
+  `;
+}
+
+function normalizePhone(phone){
+
+  let value=String(phone||"").replace(/\D/g,"");
+
+  if(value.startsWith("0")){
+    value="62"+value.slice(1);
+  }
+
+  if(value.startsWith("8")){
+    value="62"+value;
+  }
+
+  return value;
+}
+
+function checkoutWhatsApp(){
+
+  validateCart();
+
+  if(!cart.length){
+    toast("Keranjang kosong","error");
+    closeCheckout();
+    return;
+  }
+
+  const name=document
+    .getElementById("checkoutName")
+    .value
+    .trim();
+
+  const phone=document
+    .getElementById("checkoutPhone")
+    .value
+    .trim();
+
+  const buyer=document
+    .getElementById("checkoutBuyer")
+    .value;
+
+  const address=document
+    .getElementById("checkoutAddress")
+    .value
+    .trim();
+
+  const notes=document
+    .getElementById("checkoutNotes")
+    .value
+    .trim();
+
+  if(!name){
+    toast("Nama pemesan wajib diisi","error");
+    return;
+  }
+
+  if(!phone){
+    toast("Nomor WhatsApp wajib diisi","error");
+    return;
+  }
+
+  if(normalizePhone(phone).length<10){
+    toast("Nomor WhatsApp tidak valid","error");
+    return;
+  }
+
+  if(!address){
+    toast("Alamat pengiriman wajib diisi","error");
+    return;
+  }
+
+  let message=
+`*PESANAN SUGIH SAWARGI*
+================================
+Nama: ${name}
+WhatsApp: ${phone}
+Jenis Pembeli: ${buyer}
+
+*DETAIL PESANAN*
+`;
+
+  cart.forEach((item,index)=>{
+
+    const product=getProduct(item.id);
+
+    if(!product) return;
+
+    message+=
+`\n${index+1}. ${product.name}
+   Jumlah: ${item.qty} ${product.unit}
+   Harga retail: ${rupiah(product.price)}
+   Subtotal: ${rupiah(product.price*item.qty)}
+`;
+  });
+
+  message+=
+`
+================================
+*TOTAL RETAIL: ${rupiah(totalCartValue())}*
+
+Alamat:
+${address}
+
+Catatan:
+${notes || "-"}
+
+Mohon konfirmasi ketersediaan, harga grosir
+(jika memenuhi ketentuan), dan total akhir.
+
+Terima kasih.
+`;
+
+  const url=
+    `https://wa.me/${ADMIN_WA}?text=${encodeURIComponent(message)}`;
+
+  window.open(url,"_blank");
+
+  closeCheckout();
+
+  toast("Pesanan siap dikirim ke WhatsApp");
+
+}
+
+/* =========================================================
+   PRODUCT DETAIL
+   ========================================================= */
+
+function openProductDetail(id){
+
+  const product=getProduct(id);
+
+  if(!product) return;
+
+  const stock=stockInfo(Number(product.stock)||0);
+
+  const imageHTML=product.image
+    ? `
+      <img
+        src="${escapeAttribute(product.image)}"
+        alt="${escapeAttribute(product.name)}"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span style="display:none">${escapeHTML(product.emoji||"🥬")}</span>
+    `
+    : `
+      ${escapeHTML(product.emoji||"🥬")}
+    `;
+
+  document.getElementById("productDetailBody").innerHTML=`
+
+    <div class="detail-grid">
+
+      <div class="detail-image">
+        ${imageHTML}
+      </div>
+
+      <div class="detail-info">
+
+        <div style="font-size:12px;color:var(--muted);font-weight:800">
+          ${escapeHTML(product.category)}
+        </div>
+
+        <h2>${escapeHTML(product.name)}</h2>
+
+        <div class="detail-price">
+          ${rupiah(product.price)}
+          <span style="font-size:12px;color:var(--muted)">
+            / ${escapeHTML(product.unit)}
+          </span>
+        </div>
+
+        ${
+          product.badge
+          ? `<div style="margin-top:7px;color:var(--primary);font-weight:800;font-size:12px">
+               🏷️ ${escapeHTML(product.badge)}
+             </div>`
+          :""
+        }
+
+        <div class="detail-list">
+
+          <div class="detail-row">
+            <span>Status</span>
+            <strong>${stock.text}</strong>
+          </div>
+
+          <div class="detail-row">
+            <span>Stok</span>
+            <strong>${Number(product.stock)} ${escapeHTML(product.unit)}</strong>
+          </div>
+
+          <div class="detail-row">
+            <span>Harga Grosir</span>
+            <strong>${rupiah(product.wholesale)}</strong>
+          </div>
+
+          <div class="detail-row">
+            <span>Minimal Order</span>
+            <strong>${Number(product.min)||1} ${escapeHTML(product.unit)}</strong>
+          </div>
 
         </div>
 
       </div>
 
-      `;
+    </div>
 
-    }).join("");
+    <div style="margin-top:20px">
+      <button
+        class="btn btn-primary"
+        style="width:100%"
+        onclick="closeProductDetail();document.getElementById('qty-${Number(product.id)}')?.scrollIntoView({behavior:'smooth',block:'center'})">
+        🛒 Pilih Produk
+      </button>
+    </div>
+  `;
 
-
-  document.getElementById(
-    "cartTotal"
-  ).textContent=
-    rupiah(getCartTotal());
-
+  document.getElementById("productDetailModal").classList.add("show");
 }
 
-
-function openCart(){
-
-  document
-    .getElementById("cartDrawer")
-    .classList.add("open");
-
-  document
-    .getElementById("overlay")
-    .classList.add("show");
-
+function closeProductDetail(){
+  document.getElementById("productDetailModal").classList.remove("show");
 }
 
+/* =========================================================
+   DARK MODE
+   ========================================================= */
 
-function closeCart(){
+function loadDark(){
 
-  document
-    .getElementById("cartDrawer")
-    .classList.remove("open");
+  const dark=localStorage.getItem(DARK_KEY)==="true";
 
-  document
-    .getElementById("overlay")
-    .classList.remove("show");
-
+  if(dark){
+    document.body.classList.add("dark");
+  }
 }
 
+function toggleDark(){
 
-/* =========================
-   CHECKOUT
-========================= */
+  document.body.classList.toggle("dark");
 
-function openCheckout(){
-
-  if(!cart.length){
-
-    toast(
-      "Keranjang masih kosong."
-    );
-
-    return;
-
-  }
-
-
-  document
-    .getElementById("checkoutModal")
-    .classList.add("show");
-
-}
-
-
-function closeCheckout(){
-
-  document
-    .getElementById("checkoutModal")
-    .classList.remove("show");
-
-}
-
-
-function checkoutWhatsApp(){
-
-  const name=
-    document
-      .getElementById("buyerName")
-      .value
-      .trim();
-
-
-  const phone=
-    document
-      .getElementById("buyerPhone")
-      .value
-      .trim();
-
-
-  const type=
-    document
-      .getElementById("buyerType")
-      .value;
-
-
-  const address=
-    document
-      .getElementById("buyerAddress")
-      .value
-      .trim();
-
-
-  const notes=
-    document
-      .getElementById("buyerNotes")
-      .value
-      .trim();
-
-
-  if(!name){
-
-    alert("Nama wajib diisi.");
-
-    return;
-
-  }
-
-
-  if(!phone){
-
-    alert(
-      "Nomor WhatsApp wajib diisi."
-    );
-
-    return;
-
-  }
-
-
-  if(!address){
-
-    alert("Alamat wajib diisi.");
-
-    return;
-
-  }
-
-
-  let message=
-    "HALO SUGIH SAWARGI VEGETABLES 👋\n\n";
-
-
-  message+=
-    "Saya ingin melakukan pemesanan:\n\n";
-
-
-  cart.forEach(function(item){
-
-    const product=
-      products.find(function(p){
-        return p.id===item.id;
-      });
-
-
-    if(product){
-
-      message+=
-        "• "
-        +product.name
-        +" x "
-        +item.qty
-        +" "
-        +product.unit
-        +" = "
-        +rupiah(
-          product.price*
-          item.qty
-        )
-        +"\n";
-
-    }
-
-  });
-
-
-  message+=
-    "\nTOTAL: "
-    +rupiah(getCartTotal())
-    +"\n\n";
-
-
-  message+="DATA PEMBELI\n";
-
-  message+="Nama: "+name+"\n";
-
-  message+="WhatsApp: "+phone+"\n";
-
-  message+="Jenis: "+type+"\n";
-
-  message+="Alamat: "+address+"\n";
-
-
-  if(notes){
-
-    message+=
-      "Catatan: "
-      +notes
-      +"\n";
-
-  }
-
-
-  message+=
-    "\nMohon konfirmasi ketersediaan dan total pesanan. Terima kasih 🙏";
-
-
-  window.open(
-    "https://wa.me/"
-    +WA_NUMBER
-    +"?text="
-    +encodeURIComponent(message),
-    "_blank"
+  localStorage.setItem(
+    DARK_KEY,
+    document.body.classList.contains("dark")
   );
-
 }
 
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
 
-/* =========================
-   ADMIN LOGIN
-========================= */
+function toggleMobileMenu(){
+  document.getElementById("navLinks").classList.toggle("show");
+}
+
+function closeMobileMenu(){
+  document.getElementById("navLinks").classList.remove("show");
+}
+
+/* =========================================================
+   ADMIN
+   ========================================================= */
 
 function loginAdmin(){
 
   const password=
-    document
-      .getElementById("adminPassword")
-      .value;
+    document.getElementById("adminPassword").value;
 
+  if(password===ADMIN_PASSWORD){
 
-  if(password!==ADMIN_PASSWORD){
+    sessionStorage.setItem(ADMIN_KEY,"true");
 
-    toast("❌ Password salah.");
+    showAdminPanel();
 
-    return;
+    document.getElementById("adminPassword").value="";
 
-  }
-
-
-  try{
-
-    sessionStorage.setItem(
-      "sugihAdminV61",
-      "1"
-    );
-
-  }catch(e){}
-
-
-  showAdmin();
-
-  toast("✅ Login berhasil.");
-
-}
-
-
-function showAdmin(){
-
-  document
-    .getElementById("adminLogin")
-    .style.display="none";
-
-
-  document
-    .getElementById("adminPanel")
-    .classList.add("show");
-
-
-  renderAdmin();
-
-}
-
-
-function logoutAdmin(){
-
-  try{
-
-    sessionStorage.removeItem(
-      "sugihAdminV61"
-    );
-
-  }catch(e){}
-
-
-  document
-    .getElementById("adminLogin")
-    .style.display="block";
-
-
-  document
-    .getElementById("adminPanel")
-    .classList.remove("show");
-
-}
-
-
-/* =========================
-   ADMIN DASHBOARD
-========================= */
-
-function renderAdmin(){
-
-  document.getElementById(
-    "adminProducts"
-  ).textContent=
-    products.length;
-
-
-  document.getElementById(
-    "adminStock"
-  ).textContent=
-    products.reduce(
-      function(total,p){
-
-        return total+
-          Number(p.stock||0);
-
-      },
-      0
-    );
-
-
-  document.getElementById(
-    "adminCategories"
-  ).textContent=
-    new Set(
-      products.map(function(p){
-        return p.category;
-      })
-    ).size;
-
-
-  document.getElementById(
-    "statProducts"
-  ).textContent=
-    products.length+"+";
-
-
-  const tbody=
-    document.getElementById(
-      "adminTable"
-    );
-
-
-  tbody.innerHTML=
-    products.map(function(product){
-
-      return `
-
-      <tr>
-
-        <td>
-
-          <strong>
-
-            ${escapeHTML(product.emoji||"🥬")}
-            ${escapeHTML(product.name)}
-
-          </strong>
-
-          <br>
-
-          <small>
-            ${escapeHTML(product.category)}
-          </small>
-
-        </td>
-
-
-        <td>
-          ${rupiah(product.price)}
-        </td>
-
-
-        <td>
-          ${rupiah(product.wholesale)}
-        </td>
-
-
-        <td>
-          ${product.stock}
-          ${escapeHTML(product.unit)}
-        </td>
-
-
-        <td>
-
-          <div class="admin-actions">
-
-            <button
-            class="btn btn-warning btn-small"
-            onclick="editProduct(${product.id})">
-
-              Edit
-
-            </button>
-
-
-            <button
-            class="btn btn-danger btn-small"
-            onclick="deleteProduct(${product.id})">
-
-              Hapus
-
-            </button>
-
-          </div>
-
-        </td>
-
-      </tr>
-
-      `;
-
-    }).join("");
-
-}
-
-
-/* =========================
-   ADD PRODUCT
-========================= */
-
-function openProductModal(){
-
-  editingId=null;
-
-
-  document.getElementById(
-    "productModalTitle"
-  ).textContent=
-    "➕ Tambah Produk";
-
-
-  document.getElementById(
-    "pName"
-  ).value="";
-
-
-  document.getElementById(
-    "pPrice"
-  ).value="";
-
-
-  document.getElementById(
-    "pWholesale"
-  ).value="";
-
-
-  document.getElementById(
-    "pStock"
-  ).value="100";
-
-
-  document.getElementById(
-    "pMin"
-  ).value="1";
-
-
-  document.getElementById(
-    "pEmoji"
-  ).value="🥬";
-
-
-  document.getElementById(
-    "pBadge"
-  ).value="Segar";
-
-
-  document
-    .getElementById("productModal")
-    .classList.add("show");
-
-}
-
-
-function closeProductModal(){
-
-  document
-    .getElementById("productModal")
-    .classList.remove("show");
-
-}
-
-
-/* =========================
-   EDIT PRODUCT
-========================= */
-
-function editProduct(id){
-
-  const product=
-    products.find(function(p){
-      return p.id===id;
-    });
-
-
-  if(!product){
-    return;
-  }
-
-
-  editingId=id;
-
-
-  document.getElementById(
-    "productModalTitle"
-  ).textContent=
-    "✏️ Edit Produk";
-
-
-  document.getElementById(
-    "pName"
-  ).value=
-    product.name;
-
-
-  document.getElementById(
-    "pCategory"
-  ).value=
-    product.category;
-
-
-  document.getElementById(
-    "pPrice"
-  ).value=
-    product.price;
-
-
-  document.getElementById(
-    "pWholesale"
-  ).value=
-    product.wholesale;
-
-
-  document.getElementById(
-    "pStock"
-  ).value=
-    product.stock;
-
-
-  document.getElementById(
-    "pMin"
-  ).value=
-    product.min;
-
-
-  document.getElementById(
-    "pUnit"
-  ).value=
-    product.unit;
-
-
-  document.getElementById(
-    "pEmoji"
-  ).value=
-    product.emoji;
-
-
-  document.getElementById(
-    "pBadge"
-  ).value=
-    product.badge;
-
-
-  document
-    .getElementById("productModal")
-    .classList.add("show");
-
-}
-
-
-/* =========================
-   SAVE PRODUCT
-========================= */
-
-function saveProduct(){
-
-  const name=
-    document
-      .getElementById("pName")
-      .value
-      .trim();
-
-
-  const category=
-    document
-      .getElementById("pCategory")
-      .value;
-
-
-  const price=
-    Number(
-      document
-        .getElementById("pPrice")
-        .value
-    );
-
-
-  const wholesale=
-    Number(
-      document
-        .getElementById("pWholesale")
-        .value
-    );
-
-
-  const stock=
-    Number(
-      document
-        .getElementById("pStock")
-        .value
-    );
-
-
-  const min=
-    Number(
-      document
-        .getElementById("pMin")
-        .value
-    )||1;
-
-
-  const unit=
-    document
-      .getElementById("pUnit")
-      .value;
-
-
-  const emoji=
-    document
-      .getElementById("pEmoji")
-      .value
-      .trim()
-      ||"🥬";
-
-
-  const badge=
-    document
-      .getElementById("pBadge")
-      .value
-      .trim();
-
-
-  if(
-    !name ||
-    price<=0 ||
-    stock<0
-  ){
-
-    alert(
-      "Nama, harga dan stok harus benar."
-    );
-
-    return;
-
-  }
-
-
-  if(editingId){
-
-    const product=
-      products.find(function(p){
-
-        return p.id===editingId;
-
-      });
-
-
-    if(product){
-
-      product.name=name;
-
-      product.category=
-        category;
-
-      product.price=
-        price;
-
-      product.wholesale=
-        wholesale||price;
-
-      product.stock=
-        stock;
-
-      product.min=
-        min;
-
-      product.unit=
-        unit;
-
-      product.emoji=
-        emoji;
-
-      product.badge=
-        badge;
-
-      if(PRODUCT_IMAGES[name]){
-
-        product.image=
-          PRODUCT_IMAGES[name];
-
-      }
-
-    }
-
-
-    toast(
-      "✅ Produk diperbarui."
-    );
-
+    toast("Login admin berhasil");
 
   }else{
 
-    products.push({
+    toast("Password admin salah","error");
+  }
+}
 
-      id:Date.now(),
+function logoutAdmin(){
 
-      name:name,
+  sessionStorage.removeItem(ADMIN_KEY);
 
-      category:category,
+  document.getElementById("adminPanel").style.display="none";
+  document.getElementById("adminLogin").style.display="block";
 
-      price:price,
+  toast("Anda telah keluar dari admin");
+}
 
-      wholesale:
-        wholesale||price,
+function showAdminPanel(){
 
-      stock:stock,
+  document.getElementById("adminLogin").style.display="none";
+  document.getElementById("adminPanel").style.display="block";
 
-      min:min,
+  renderAdmin();
+}
 
-      unit:unit,
+function renderAdmin(){
 
-      emoji:emoji,
+  const table=document.getElementById("adminProductTable");
 
-      badge:badge,
+  if(!table) return;
 
-      image:
-        PRODUCT_IMAGES[name]||""
+  const totalStock=products.reduce(
+    (sum,p)=>sum+(Number(p.stock)||0),
+    0
+  );
 
-    });
+  document.getElementById("adminTotalProducts").textContent=
+    products.length;
 
+  document.getElementById("adminTotalStock").textContent=
+    totalStock;
 
-    toast(
-      "✅ Produk ditambahkan."
-    );
+  updateAllCounters();
 
+  table.innerHTML=products.map(product=>`
+
+    <tr>
+
+      <td>
+        <strong>
+          ${escapeHTML(product.emoji||"🥬")}
+          ${escapeHTML(product.name)}
+        </strong>
+      </td>
+
+      <td>${escapeHTML(product.category)}</td>
+
+      <td>${rupiah(product.price)}</td>
+
+      <td>${rupiah(product.wholesale)}</td>
+
+      <td>
+        <strong>${Number(product.stock)}</strong>
+      </td>
+
+      <td>${escapeHTML(product.unit)}</td>
+
+      <td>
+        <div style="display:flex;gap:5px">
+
+          <button
+            class="btn btn-secondary btn-small"
+            onclick="openProductForm(${Number(product.id)})">
+            Edit
+          </button>
+
+          <button
+            class="btn btn-danger btn-small"
+            onclick="deleteProduct(${Number(product.id)})">
+            Hapus
+          </button>
+
+        </div>
+      </td>
+
+    </tr>
+  `).join("");
+}
+
+function openProductForm(id=null){
+
+  editingProductId=id;
+
+  document.getElementById("productFormModal").classList.add("show");
+
+  if(id===null){
+
+    document.getElementById("productFormTitle").textContent=
+      "Tambah Produk";
+
+    document.getElementById("editProductId").value="";
+
+    document.getElementById("formName").value="";
+    document.getElementById("formCategory").value="Sayuran Hijau";
+    document.getElementById("formPrice").value="";
+    document.getElementById("formWholesale").value="";
+    document.getElementById("formStock").value="0";
+    document.getElementById("formMin").value="1";
+    document.getElementById("formUnit").value="kg";
+    document.getElementById("formEmoji").value="🥬";
+    document.getElementById("formBadge").value="";
+    document.getElementById("formImage").value="";
+
+    return;
   }
 
+  const product=getProduct(id);
+
+  if(!product) return;
+
+  document.getElementById("productFormTitle").textContent=
+    "Edit Produk";
+
+  document.getElementById("editProductId").value=product.id;
+
+  document.getElementById("formName").value=product.name||"";
+  document.getElementById("formCategory").value=product.category||"";
+  document.getElementById("formPrice").value=product.price||0;
+  document.getElementById("formWholesale").value=product.wholesale||0;
+  document.getElementById("formStock").value=product.stock||0;
+  document.getElementById("formMin").value=product.min||1;
+  document.getElementById("formUnit").value=product.unit||"kg";
+  document.getElementById("formEmoji").value=product.emoji||"🥬";
+  document.getElementById("formBadge").value=product.badge||"";
+  document.getElementById("formImage").value=product.image||"";
+}
+
+function closeProductForm(){
+
+  document.getElementById("productFormModal").classList.remove("show");
+
+  editingProductId=null;
+}
+
+function saveProduct(){
+
+  const name=document.getElementById("formName").value.trim();
+  const category=document.getElementById("formCategory").value.trim();
+  const price=Number(document.getElementById("formPrice").value);
+  const wholesale=Number(document.getElementById("formWholesale").value);
+  const stock=Number(document.getElementById("formStock").value);
+  const min=Number(document.getElementById("formMin").value);
+  const unit=document.getElementById("formUnit").value.trim();
+  const emoji=document.getElementById("formEmoji").value.trim();
+  const badge=document.getElementById("formBadge").value.trim();
+  const image=document.getElementById("formImage").value.trim();
+
+  if(!name){
+    toast("Nama produk wajib diisi","error");
+    return;
+  }
+
+  if(!category){
+    toast("Kategori wajib diisi","error");
+    return;
+  }
+
+  if(price<=0){
+    toast("Harga retail harus lebih dari 0","error");
+    return;
+  }
+
+  if(wholesale<0){
+    toast("Harga grosir tidak valid","error");
+    return;
+  }
+
+  if(stock<0){
+    toast("Stok tidak boleh negatif","error");
+    return;
+  }
+
+  if(min<1){
+    toast("Minimal pembelian minimal 1","error");
+    return;
+  }
+
+  if(!unit){
+    toast("Satuan wajib diisi","error");
+    return;
+  }
+
+  if(editingProductId!==null){
+
+    const product=getProduct(editingProductId);
+
+    if(!product) return;
+
+    product.name=name;
+    product.category=category;
+    product.price=price;
+    product.wholesale=wholesale;
+    product.stock=stock;
+    product.min=min;
+    product.unit=unit;
+    product.emoji=emoji||"🥬";
+    product.badge=badge;
+    product.image=image;
+
+    toast("Produk berhasil diperbarui");
+
+  }else{
+
+    const newId=
+      products.length
+        ? Math.max(...products.map(p=>Number(p.id)||0))+1
+        : 1;
+
+    products.push({
+      id:newId,
+      name,
+      category,
+      price,
+      wholesale,
+      stock,
+      min,
+      unit,
+      emoji:emoji||"🥬",
+      badge,
+      image
+    });
+
+    toast("Produk baru berhasil ditambahkan");
+  }
 
   saveProducts();
 
+  validateCart();
+
   renderCategories();
-
   renderProducts();
-
+  renderCart();
   renderAdmin();
+  updateAllCounters();
 
-  closeProductModal();
-
+  closeProductForm();
 }
-
-
-/* =========================
-   DELETE
-========================= */
 
 function deleteProduct(id){
 
-  const product=
-    products.find(function(p){
-      return p.id===id;
-    });
+  const product=getProduct(id);
 
+  if(!product) return;
 
-  if(!product){
-    return;
-  }
+  const ok=confirm(
+    `Hapus produk "${product.name}" dari katalog?`
+  );
 
+  if(!ok) return;
 
-  if(
-    !confirm(
-      'Hapus produk "'+
-      product.name+
-      '"?'
-    )
-  ){
+  products=products.filter(
+    p=>Number(p.id)!==Number(id)
+  );
 
-    return;
-
-  }
-
-
-  products=
-    products.filter(function(p){
-      return p.id!==id;
-    });
-
-
-  cart=
-    cart.filter(function(item){
-      return item.id!==id;
-    });
-
+  cart=cart.filter(
+    item=>Number(item.id)!==Number(id)
+  );
 
   saveProducts();
-
   saveCart();
 
   renderCategories();
-
   renderProducts();
-
   renderCart();
-
   renderAdmin();
+  updateAllCounters();
 
-  toast(
-    "🗑️ Produk dihapus."
-  );
-
+  toast(`${product.name} dihapus`);
 }
-
-
-/* =========================
-   RESET
-========================= */
 
 function resetProducts(){
 
-  if(
-    !confirm(
-      "Reset katalog ke data demo?"
-    )
-  ){
+  const ok=confirm(
+    "Reset seluruh produk ke data demo bawaan?"
+  );
 
-    return;
+  if(!ok) return;
 
-  }
-
-
-  products=
-    JSON.parse(
-      JSON.stringify(
-        demoProducts
-      )
-    );
-
-
-  cart=[];
-
-  activeCategory="Semua";
-
+  products=JSON.parse(JSON.stringify(defaultProducts));
 
   saveProducts();
 
+  cart=[];
   saveCart();
 
+  activeCategory="Semua";
+
   renderCategories();
-
   renderProducts();
-
   renderCart();
-
   renderAdmin();
+  updateAllCounters();
 
-
-  toast(
-    "♻️ Data demo dipulihkan."
-  );
-
+  toast("Produk berhasil direset");
 }
 
+/* =========================================================
+   KEYBOARD
+   ========================================================= */
 
-/* =========================
-   CLOSE MENU WHEN CLICK LINK
-========================= */
+document.addEventListener("keydown",(event)=>{
 
-document
-  .querySelectorAll(".nav-links a")
-  .forEach(function(link){
+  if(event.key==="Escape"){
 
-    link.addEventListener(
-      "click",
-      function(){
+    closeCart();
+    closeCheckout();
+    closeProductForm();
+    closeProductDetail();
+    closeMobileMenu();
+  }
 
-        document
-          .getElementById("navLinks")
-          .classList.remove("show");
+});
 
-      }
-    );
+/* =========================================================
+   STORAGE SYNC
+   ========================================================= */
 
-  });
+window.addEventListener("storage",(event)=>{
 
+  if(event.key===PRODUCT_KEY){
 
-/* =========================
-   INIT
-========================= */
-
-document.addEventListener(
-  "DOMContentLoaded",
-  function(){
-
-    try{
-
-      if(
-        localStorage.getItem(
-          DARK_KEY
-        )==="1"
-      ){
-
-        document.body
-          .classList.add("dark");
-
-
-        document.getElementById(
-          "darkBtn"
-        ).textContent="☀️";
-
-      }
-
-    }catch(e){}
-
+    loadProducts();
 
     renderCategories();
-
     renderProducts();
+    renderCart();
+    renderAdmin();
+  }
+
+  if(event.key===CART_KEY){
+
+    loadCart();
 
     renderCart();
-
+    updateAllCounters();
     renderAdmin();
-
-
-    try{
-
-      if(
-        sessionStorage.getItem(
-          "sugihAdminV61"
-        )==="1"
-      ){
-
-        showAdmin();
-
-      }
-
-    }catch(e){}
-
-
-    console.log(
-      "SUGIH SAWARGI VEGETABLES V6.2 berjalan."
-    );
-
   }
-);
 
+});
+
+/* =========================================================
+   END V6.3
+   ========================================================= */
 </script>
 
 </body>
